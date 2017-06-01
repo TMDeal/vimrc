@@ -44,10 +44,10 @@ function! functions#ExecuteWithInput(command, prompt, ...) abort
     endif
     call inputrestore()
 
-    let l:command = "" . a:command . ' ' . l:arg
+    let l:command = '' . a:command . ' ' . l:arg
 
-    execute "silent! " .  l:command
-    execute "silent! redraw!"
+    execute 'silent! ' .  l:command
+    execute 'silent! redraw!'
 endfunction
 
 function! functions#InitLeaderModeMap()
@@ -63,9 +63,7 @@ endfunction
 function! functions#InitLeaderMap()
     let g:leader_map     = {}
     let g:leader_map.f   = {'name': 'filesystem'}
-    let g:leader_map.f.e = {'name': 'edit'}
-    let g:leader_map.f.s = {'name': 'source'}
-    let g:leader_map.F   = {'name': 'format'}
+    let g:leader_map.F   = {'name': 'Format'}
     let g:leader_map.o   = {'name': 'open'}
     let g:leader_map.b   = {'name': 'buffer'}
     let g:leader_map.w   = {'name': 'window'}
@@ -74,6 +72,4 @@ function! functions#InitLeaderMap()
     let g:leader_map.p   = {'name': 'project'}
     let g:leader_map.g   = {'name': 'git'}
     let g:leader_map.y   = {'name': 'yankring'}
-
-    call functions#InitLeaderModeMap()
 endfunction
