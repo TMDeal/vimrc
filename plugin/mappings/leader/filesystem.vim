@@ -1,5 +1,20 @@
-if dein#tap('eunuch')
-    if dein#tap('leader-guide')
+if dein#tap('leader-guide')
+    let g:leader_map.f.e = {'name': 'edit/source'}
+    let g:leader_map.f.e.v = ['e $MYVIMRC', 'edit vimrc']
+    let g:leader_map.f.e.V = ['so $MYVIMRC', 'source vimrc']
+    let g:leader_map.f.e.b = ['e ~/.bashrc', 'edit bashrc']
+    let g:leader_map.f.e.t = ['e ~/.tmux.conf', 'edit tmux.conf']
+    let g:leader_map.f.e.S = ['so %', 'source current file']
+
+    if dein#tap('nerdtree')
+        let g:leader_map.f.t = ['ProjectRootExe NERDTreeToggle', 'NERDTree']
+    endif
+
+    if dein#tap('ultisnips')
+        let g:leader_map.f.e.s = ['UltiSnipsEdit', 'edit snippets']
+    endif
+
+    if dein#tap('eunuch')
         let g:leader_map.f.W = ['SudoWrite', 'sudo write']
         let g:leader_map.f.d = ['Remove', 'delete buffer']
         let g:leader_map.f.E = ['call functions#ExecuteWithInput("SudoEdit", "sudo edit", "file")', 'sudo edit']

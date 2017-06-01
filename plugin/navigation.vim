@@ -1,24 +1,3 @@
-if dein#tap('leader-guide')
-    if dein#tap('nerdtree')
-        let g:leader_map.f.t = ['ProjectRootExe NERDTreeToggle', 'NERDTree']
-    endif
-
-    if dein#tap('ctrlp')
-        let g:leader_map.p.p = ['CtrlP', 'CtrlP']
-        let g:leader_map.p.m = ['CtrlPMRU', 'CtrlPMRU']
-        let g:leader_map.p.b = ['CtrlPBuffer', 'CtrlPBuffer']
-    endif
-
-    if dein#tap('buffergator')
-        let g:leader_map.b.b = ['BuffergatorToggle', 'Buffergator']
-    endif
-
-    if dein#tap('list-toggle')
-        let g:leader_map.o.l = ['LToggle', 'Loclist']
-        let g:leader_map.o.q = ['QToggle', 'Quickfix']
-    endif
-endif
-
 if dein#tap('nerdtree')
     let g:NERDTreeHijackNetrw=1
     let g:NERDTreeMouseMode=2
@@ -60,12 +39,8 @@ if dein#tap('ctrlp')
                 \ }
 endif
 
-if !dein#tap('buffergator')
-    nnoremap gb :ls<CR>:buffer<Space>
-else
+if dein#tap('buffergator')
     let g:buffergator_suppress_keymaps=0
-    nnoremap <silent> ]b :BuffergatorMruCyclePrev<cr>
-    nnoremap <silent> [b :BuffergatorMruCycleNext<cr>
 endif
 
 if dein#tap('list-toggle')

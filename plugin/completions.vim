@@ -1,9 +1,3 @@
-if dein#tap('leader-guide')
-    if dein#tap('ultisnips')
-        let g:leader_map.f.e.s = ['UltiSnipsEdit', 'edit snippets']
-    endif
-endif
-
 if dein#tap('ultisnips')
     let g:UltiSnipsExpandTrigger='<C-k>'
     let g:UltiSnipsJumpForwardTrigger='<C-k>'
