@@ -407,6 +407,16 @@ name = 'far'
 on_cmd = ['Far', 'Farp', 'Fardo', 'Refar', 'Farundo', 'F']
 
 [[plugins]]
+repo = 'mhinz/vim-grepper'
+name = 'grepper'
+on_cmd = ['Grepper']
+on_map = '<Plug>(GrepperOperator)'
+hook_add = '''
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
+'''
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeToggle', 'NERDTreeFind']
 
