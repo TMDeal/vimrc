@@ -388,6 +388,10 @@ name = 'lightline'
 ####################
 
 [[plugins]]
+repo = 'sbdchd/vim-shebang'
+on_cmd = ['ShebangInsert']
+
+[[plugins]]
 repo = 'godlygeek/tabular'
 on_cmd = ['Tabularize']
 
