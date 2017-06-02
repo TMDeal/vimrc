@@ -320,14 +320,6 @@ repo = 'adelarsq/vim-matchit'
 name = 'matchit'
 
 [[plugins]]
-repo = 'kana/vim-textobj-user'
-name = 'textobj-user'
-
-[[plugins]]
-repo = 'mjbrownie/django-template-textobjects'
-on_ft = ['python', 'htmldjango']
-
-[[plugins]]
 repo = 'vim-scripts/YankRing.vim'
 name = 'yankring'
 hook_add = '''
@@ -351,6 +343,19 @@ hook_add = '''
 let g:tcommentMapLeader1=''
 let g:tcommentMapLeader2=''
 '''
+
+####################
+# Text Objects #####
+####################
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+on_func = 'textobj#user#'
+
+[[plugins]]
+repo = 'mjbrownie/django-template-textobjects'
+on_ft = ['python', 'htmldjango']
+depends = 'vim-textobj-user'
 
 ####################
 # UI ###############
