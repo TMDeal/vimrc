@@ -44,8 +44,7 @@ on_ft = ['c', 'cpp']
 ####################
 
 [[plugins]]
-repo = 'jmcantrell/vim-virtualenv'
-name = 'python-virtualenv'
+repo = 'python-mode/python-mode'
 on_ft = ['python']
 
 [[plugins]]

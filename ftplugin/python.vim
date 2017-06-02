@@ -9,12 +9,6 @@ function! s:SetLeaderGuideMappings()
             let g:leader_map.m.r = ['jedi#rename()', 'rename under cursor']
             let g:leader_map.m.u = ['jedi#usages()', 'show usages']
         endif
-        if dein#tap('python-virtualenv')
-            let g:leader_map.m.v = {'name': 'virtualenv'}
-            let g:leader_map.m.v.l = ['VirtualEnvList', 'show virtualenvs']
-            let g:leader_map.m.v.d = ['VirtualEnvDeactivate', 'deactivate virtualenv']
-            let g:leader_map.m.v.a = ['call functions#ExecuteWithInput("VirtualEnvActivate", "env", "customlist,complete#virtualenv#Env")', "activate virtualenv"]
-        endif
         if dein#tap('pony')
             if exists('b:is_django')
                 let g:leader_map.m.d = {'name': 'django'}
@@ -41,6 +35,28 @@ call s:SetLeaderGuideMappings()
 augroup my_autocmds
     au Filetype python call s:SetLeaderGuideMappings()
 augroup END
+
+if dein#tap('python-mode')
+    let g:pymode_python='python3'
+
+    let g:pymode_indent=1
+    let g:pymode_motion=1
+    let g:pymode_virtualenv=1
+    let g:pymode_syntax_all=1
+    let g:pymode_trim_whitespaces=1
+
+    let g:pymode_doc=0
+    let g:pymode_run=0
+    let g:pymode_lint=0
+    let g:pymode_rope=0
+    let g:pymode_folding=0
+    let g:pymode_breakpoint=0
+    let g:pymode_rope_completion=0
+    let g:pymode_rope_lookup_project=0
+
+    let g:pymode_breakpoint_cmd=''
+    let g:pymode_rope_ropefolder='.ropeproject'
+endif
 
 if dein#tap('jedi')
     let g:jedi#completions_enabled=0
