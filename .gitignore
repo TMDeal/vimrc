@@ -1,3 +1,4 @@
 bundle
 .cache
 .localvimrc_persistent
+.netrwhist
