@@ -30,10 +30,8 @@ function! s:SetLeaderGuideMappings()
     endif
 endfunction
 
-call s:SetLeaderGuideMappings()
-
 augroup my_autocmds
-    au Filetype python call s:SetLeaderGuideMappings()
+    au! BufEnter * if &ft ==# 'python' | call s:SetLeaderGuideMappings() | endif
 augroup END
 
 if dein#tap('python-mode')

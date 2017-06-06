@@ -18,7 +18,7 @@ augroup my_autocmds
     endif
 
     if dein#tap('leader-guide')
-        au BufLeave * call functions#ClearLeaderModeMap()
+        au BufLeave * if &ft != 'LeaderGuide' | call functions#ClearLeaderModeMap() | endif
     endif
 
 augroup END

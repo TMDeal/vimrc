@@ -17,10 +17,8 @@ function! s:SetLeaderGuideMappings()
     endif
 endfunction
 
-call s:SetLeaderGuideMappings()
-
 augroup my_autocmds
-    au Filetype c,cpp call s:SetLeaderGuideMappings()
+    au! BufEnter * if &ft ==# 'cpp' || &ft ==# 'c' | call s:SetLeaderGuideMappings() | endif
 augroup END
 
 let s:flags=clang#Config()

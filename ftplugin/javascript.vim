@@ -8,11 +8,8 @@ function! s:SetLeaderGuideMappings()
     endif
 endfunction
 
-call s:SetLeaderGuideMappings()
-
 augroup my_autocmds
-    au!
-    au Filetype javascript call s:SetLeaderGuideMappings()
+    au! BufEnter * if &ft ==# 'python' | call s:SetLeaderGuideMappings() | endif
 augroup END
 
 setlocal shiftwidth=2
