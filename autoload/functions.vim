@@ -73,3 +73,17 @@ function! functions#InitLeaderMap()
     let g:leader_map.g   = {'name': 'git'}
     let g:leader_map.y   = {'name': 'yankring'}
 endfunction
+
+function! functions#AddDirLocal()
+        let l:var = input('var: ')
+        let l:value = input('value: ')
+        let l:line_to_append ='let ' . l:var . '=' . l:value
+        let l:lvimrc = expand(projectroot#guess() . '/.lvimrc')
+
+        if !filereadable(l:lvimrc)
+            execute 'write ' . l:lvimrc
+        endif
+
+        call writefile([l:line_to_append], l:lvimrc, 'a')
+        execute 'LocalVimRC'
+endfunction

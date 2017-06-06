@@ -186,6 +186,7 @@ name = 'js-indent'
 [[plugins]]
 repo = 'embear/vim-localvimrc'
 name = 'localvimrc'
+on_cmd = ['LocalVimRC', 'LocalVimRCClear']
 on_if = 'filereadable(expand(projectroot#guess() . "/.lvimrc"))'
 hook_add = '''
 let g:localvimrc_name=".lvimrc"
@@ -198,8 +199,6 @@ let g:localvimrc_persistence_file=$EDITOR_ROOT . "/.localvimrc_persistent"
 repo = 'ludovicchabant/vim-gutentags'
 name = 'gutentags'
 if = 'executable("ctags")'
-on_cmd = ['GutentagsToggleEnabled', 'GutentagsUpdate']
-on_ft = ['c', 'cpp']
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
@@ -271,12 +270,19 @@ name = 'context-filetype'
 on_source = 'deoplete'
 
 [[plugins]]
+repo = 'Shougo/echodoc.vim'
+name = 'echodoc'
+hook_add = '''
+let g:echodoc#enable_at_startup=1
+'''
+
+[[plugins]]
 repo = 'zchee/deoplete-jedi'
 on_ft = ['python']
 
 [[plugins]]
 repo = 'TMDeal/deoplete-clang'
-on_ft = ['c', 'cpp']
+on_ft = ['c', 'cpp', 'cmake']
 
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
@@ -313,10 +319,6 @@ name = 'surround'
 [[plugins]]
 repo = 'tpope/vim-repeat'
 name = 'repeat'
-
-[[plugins]]
-repo = 'adelarsq/vim-matchit'
-name = 'matchit'
 
 [[plugins]]
 repo = 'vim-scripts/YankRing.vim'
