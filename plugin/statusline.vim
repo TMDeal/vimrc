@@ -1,10 +1,13 @@
 if !dein#tap('lightline')
     set statusline=
     set statusline+=\%{statusline#Mode()}
-    set statusline+=\ %{statusline#Filename()}
     if dein#tap('fugitive')
         set statusline+=\ %{statusline#Git()}
     endif
+    if dein#tap('python-virtualenv')
+        set statusline+=\ %{virtualenv#statusline()}
+    endif
+    set statusline+=\ %{statusline#Filename()}
     set statusline+=%=
     set statusline+=\ %{statusline#Fileformat()}
     set statusline+=\ %{statusline#Fileencoding()}
@@ -20,11 +23,12 @@ else
     let g:lightline = {
                 \ 'colorscheme': 'jellybeans',
                 \ 'active': {
-                \   'left': [ [ 'mode', 'paste' ], [ 'git', 'filename' ], ['ctrlpmark'] ],
+                \   'left': [ [ 'mode', 'paste' ], [ 'git', 'virtualenv', 'filename' ], ['ctrlpmark'] ],
                 \   'right': [ [ 'ale', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
                 \ },
                 \ 'component_function': {
                 \   'git': 'lightline#statusline#Git',
+                \   'virtualenv': 'virtualenv#statusline',
                 \   'filename': 'lightline#statusline#Filename',
                 \   'fileformat': 'lightline#statusline#Fileformat',
                 \   'filetype': 'lightline#statusline#Filetype',

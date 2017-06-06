@@ -48,6 +48,11 @@ repo = 'python-mode/python-mode'
 on_ft = ['python']
 
 [[plugins]]
+repo = 'jmcantrell/vim-virtualenv'
+name = 'python-virtualenv'
+on_ft = ['python']
+
+[[plugins]]
 repo = 'heavenshell/vim-pydocstring'
 name = 'pydocstring'
 on_ft = ['python']
@@ -64,11 +69,6 @@ on_if = 'exists("b:is_django")'
 [[plugins]]
 repo = 'tweekmonster/impsort.vim'
 name = 'impsort'
-on_ft = ['python']
-
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-name = 'jedi'
 on_ft = ['python']
 
 ####################
