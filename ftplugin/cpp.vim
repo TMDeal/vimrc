@@ -18,7 +18,7 @@ function! s:SetLeaderGuideMappings()
 endfunction
 
 augroup my_autocmds
-    au! BufEnter * if &ft ==# 'cpp' || &ft ==# 'c' | call s:SetLeaderGuideMappings() | endif
+    au BufEnter * if &ft ==# 'cpp' || &ft ==# 'c' | call s:SetLeaderGuideMappings() | endif
 augroup END
 
 let s:flags=clang#Config()

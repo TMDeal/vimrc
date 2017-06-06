@@ -68,7 +68,7 @@ function! s:RopeProjectIfExistsSettings()
 endfunction
 
 augroup my_autocmds
-    au! BufEnter * if &ft ==# 'python' | call s:SetLeaderGuideMappings() | endif
+    au BufEnter * if &ft ==# 'python' | call s:SetLeaderGuideMappings() | endif
     au BufEnter * if &ft ==# 'python' | call s:RopeProjectIfExistsSettings() | endif
 augroup END
 
