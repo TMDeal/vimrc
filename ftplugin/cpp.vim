@@ -27,16 +27,14 @@ if dein#tap('neoinclude')
     call dein#source('neoinclude')
     call neoinclude#initialize()
     call neoinclude#set_filetype_paths('%', neoinclude#util#get_context_filetype())
-    if !empty(s:flags.dirs)
+    if !empty(s:flags['dirs'])
         let g:neoinclude#paths.cpp.=','.join(s:flags.dirs, ',')
     endif
 endif
 
 if dein#tap('ale')
-    if !empty(s:flags.all)
+    if !empty(s:flags['all'])
         let g:ale_cpp_clang_options=join(s:flags.all, ' ')
         let g:ale_c_gcc_options=join(s:flags.all, ' ')
     endif
 endif
-
-unlet s:flags
