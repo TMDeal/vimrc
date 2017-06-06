@@ -235,6 +235,7 @@ let g:gitgutter_map_keys=0
 
 [[plugins]]
 repo = 'w0rp/ale'
+on_event = 'CursorHold'
 
 ####################
 # Completion #######
