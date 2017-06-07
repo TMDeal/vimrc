@@ -12,6 +12,7 @@ if dein#is_sourced('deoplete')
     let g:deoplete#enable_smart_case=0
     let g:deoplete#max_menu_width=80
     let g:deoplete#file#enable_buffer_path=1
+    let g:deoplete#ignore_sources._=['around']
 
     let g:tern_request_timeout=1
     let g:tern_show_signature_in_pum=0
