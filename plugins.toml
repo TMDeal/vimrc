@@ -272,7 +272,7 @@ name = 'deoplete'
 if = 'has("nvim")'
 on_event = 'InsertEnter'
 hook_source = '''
-source $EDITOR_ROOT/plugin/deoplete.vim
+source $EDITOR_ROOT/config/deoplete.vim
 '''
 
 [[plugins]]
