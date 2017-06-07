@@ -73,6 +73,20 @@ name = 'impsort'
 on_ft = ['python']
 
 ####################
+# Go ###############
+####################
+
+[[plugins]]
+repo = 'fatih/vim-go'
+name = 'go'
+on_cmd = ['GoInstallBinaries', 'GoUpdateBinaries']
+on_ft = ['go']
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+on_ft = ['go']
+
+####################
 # Latex ############
 ####################
 
