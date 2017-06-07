@@ -43,7 +43,9 @@ set diffopt+=vertical
 set pumheight=10
 set showtabline=1
 set list
-set listchars=extends:>,precedes:<,trail:.,tab:▸\ ,eol:¬
+set listchars=extends:»,precedes:«
+set listchars+=tab:│·,eol:¬
+set listchars+=nbsp:.,trail:.
 set noshowmode
 
 set timeout
