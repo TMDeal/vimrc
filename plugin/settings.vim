@@ -7,7 +7,6 @@ if !has('nvim')
     set history=10000
     set autoread
     set laststatus=2
-    set mouse=a
     set t_vb=
     set t_u7=
 endif
@@ -18,6 +17,11 @@ endif
 
 set titlestring=%t
 
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+endif
+
+set mouse=a
 set completeopt-=preview
 " set completeopt+=noinsert
 set number
