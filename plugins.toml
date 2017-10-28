@@ -217,9 +217,13 @@ if = 'executable("ctags")'
 on_cmd = ['TagbarToggle']
 
 [[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-name = 'ctrlp'
-on_cmd = ['CtrlP', 'CtrlpBuffer', 'CtrlPMRU']
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = 0
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
