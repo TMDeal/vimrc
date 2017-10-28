@@ -9,7 +9,7 @@ function! s:SetLeaderGuideMappings()
             let g:leader_map.m.g = ['HeaderguardAdd', 'make headerguard']
         endif
         if dein#tap('fswitch')
-            let g:leader_map.m.f = {'name': 'FSwitch'}
+            let g:leader_map.m.f = {'name': '[FSwitch]'}
             let g:leader_map.m.f.h = ['FSHere', 'switch here']
             let g:leader_map.m.f.r = ['FSSplitRight', 'switch right split']
             let g:leader_map.m.f.l = ['FSSplitLeft', 'switch left split']
