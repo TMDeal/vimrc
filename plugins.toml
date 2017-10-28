@@ -107,25 +107,21 @@ on_ft = ['html', 'javascript', 'javascript.jsx', 'jinja', 'gohtmltmpl']
 [[plugins]]
 repo = 'alvan/vim-closetag'
 name = 'closetag'
-on_ft = ['html', 'htmldjango', 'javascript', 'javascript.jsx', 'jinja']
 hook_add = '''
-let g:closetag_filenames="*.html,*.php,*.xhtml,*.xml,*.jsx,,*.hbs,*.handlebars,*.jinja,,*.tsx,*.vue"
+let g:closetag_filenames="*.html,*.php,*.xhtml,*.xml,*.jsx,*.js,*.hbs,*.handlebars,*.jinja,*.tsx,*.vue,*.tmpl"
+let g:closetag_shortcut='>'
+let g:closetag_close_shortcut='<C-x>.'
 '''
 
 [[plugins]]
-repo = 'moll/vim-node'
-name = 'nodejs'
-on_ft = ['javascript', 'javascript.jsx']
+repo = 'dunckr/js_alternate.vim'
+name = 'js-alternate'
+on_func = ['js_alternate#run']
 
 [[plugins]]
 repo = 'heavenshell/vim-jsdoc'
 name = 'jsdoc'
 on_cmd = ['JsDoc']
-
-[[plugins]]
-repo = 'othree/jspc.vim'
-name = 'jspc'
-on_ft = ['javascript', 'javascript.jsx', 'typescript']
 
 [[plugins]]
 repo = 'bdauria/angular-cli.vim'
