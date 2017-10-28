@@ -1,10 +1,12 @@
 if dein#tap('leader-guide')
-    let g:leader_map.f.e = {'name': 'edit/source'}
+    let g:leader_map.f.e = {'name': '[edit]'}
     let g:leader_map.f.e.v = ['e $MYVIMRC', 'edit vimrc']
-    let g:leader_map.f.e.V = ['so $MYVIMRC', 'source vimrc']
     let g:leader_map.f.e.b = ['e ~/.bashrc', 'edit bashrc']
     let g:leader_map.f.e.t = ['e ~/.tmux.conf', 'edit tmux.conf']
-    let g:leader_map.f.e.S = ['so %', 'source current file']
+
+    let g:leader_map.f.s = {'name': '[source]'}
+    let g:leader_map.f.s.s = ['so %', 'source current file']
+    let g:leader_map.f.s.v = ['so $MYVIMRC', 'source vimrc']
 
     if dein#tap('nerdtree')
         let g:leader_map.f.t = ['ProjectRootExe NERDTreeToggle', 'NERDTree']
