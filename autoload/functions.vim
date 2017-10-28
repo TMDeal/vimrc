@@ -51,7 +51,7 @@ function! functions#ExecuteWithInput(command, prompt, ...) abort
 endfunction
 
 function! functions#InitLeaderModeMap()
-    let g:leader_map.m = {'name': 'mode'}
+    let g:leader_map.m = {'name': '[mode]'}
 endfunction
 
 function! functions#ClearLeaderModeMap()
@@ -62,16 +62,15 @@ endfunction
 
 function! functions#InitLeaderMap()
     let g:leader_map     = {}
-    let g:leader_map.f   = {'name': 'filesystem'}
-    let g:leader_map.F   = {'name': 'Format'}
-    let g:leader_map.o   = {'name': 'open'}
-    let g:leader_map.b   = {'name': 'buffer'}
-    let g:leader_map.w   = {'name': 'window'}
-    let g:leader_map.T   = {'name': 'tabs'}
-    let g:leader_map.t   = {'name': 'tags'}
-    let g:leader_map.p   = {'name': 'project'}
-    let g:leader_map.g   = {'name': 'git'}
-    let g:leader_map.y   = {'name': 'yankring'}
+    let g:leader_map.f   = {'name': '[filesystem]'}
+    let g:leader_map.F   = {'name': '[Format]'}
+    let g:leader_map.o   = {'name': '[open]'}
+    let g:leader_map.g   = {'name': '[git]'}
+    let g:leader_map.w   = {'name': '[window]'}
+    let g:leader_map.T   = {'name': '[tabs]'}
+    let g:leader_map.t   = {'name': '[tags]'}
+    let g:leader_map.p   = {'name': '[fzf]'}
+    let g:leader_map.y   = {'name': '[yankring]'}
 endfunction
 
 function! functions#AddDirLocal()
