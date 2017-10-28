@@ -8,6 +8,8 @@ augroup my_autocmds
         endif
     endif
 
+    au VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angular_cli#init() | endif
+
     "resize automatically
     au VimResized * execute "normal! \<c-w>="
 

@@ -22,7 +22,8 @@ if dein#tap('ale')
                 \   'c': ['gcc'],
                 \   'cpp': ['clang'],
                 \   'python': ['flake8'],
-                \   'javascript': ['eslint']
+                \   'javascript': ['eslint'],
+                \   'typescript': ['tslint']
                 \}
 
     let g:ale_python_flake8_args='--format=default --ignore=F403,F401,W391,E125 --max-line-length=100'

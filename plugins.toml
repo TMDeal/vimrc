@@ -139,7 +139,6 @@ on_ft = ['javascript', 'javascript.jsx', 'typescript']
 [[plugins]]
 repo = 'bdauria/angular-cli.vim'
 name = 'angular-cli'
-on_if = 'filereadable(expand(projectroot#guess() . "/angular-cli.json"))',
 hook_add = '''
 let g:angular_cli_stylesheet_format="scss"
 '''
@@ -152,7 +151,7 @@ build = 'npm install'
 on_ft = ['javascript', 'javascript.jsx']
 
 ####################
-# Syntax/Indent ####
+# Filetype #########
 ####################
 
 [[plugins]]
@@ -168,27 +167,31 @@ repo = 'lepture/vim-jinja'
 name = 'jinja'
 
 [[plugins]]
-repo = 'pangloss/vim-javascript'
-name = 'javascript'
-
-[[plugins]]
-repo = 'mxw/vim-jsx'
-name = 'jsx'
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-name = 'typescript'
-
-[[plugins]]
 repo = 'sheerun/vim-polyglot'
 name = 'polyglot'
-hook_source = '''
+hook_add = '''
 let g:polyglot_disabled=['javascript', 'jsx', 'typescript']
 '''
 
 [[plugins]]
-repo = 'jason0x43/vim-js-indent'
-name = 'js-indent'
+repo = 'leafgarland/typescript-vim'
+name = 'typescript'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+name = 'javascript'
+on_ft = ['javascript', 'javascript.jsx', 'html']
+hook_add = '''
+let g:javascript_plugin_jsdoc=1
+let g:javascript_plugin_ngdoc=1
+let g:javascript_plugin_flow=1
+'''
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+name = 'jsx'
+on_ft = ['javascript', 'javascript.jsx']
 
 ####################
 # Project ##########
@@ -230,8 +233,12 @@ repo = 'editorconfig/editorconfig-vim'
 name = 'editorconfig'
 on_if = 'filereadable(expand(projectroot#guess() . "/.editorconfig"))'
 hook_add = '''
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+let g:EditorConfig_exclude_patterns = ['scp://.*']
 '''
+
+[[plugins]]
+repo = 'rhysd/committia.vim'
+name = 'committia'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -250,7 +257,6 @@ let g:gitgutter_map_keys=0
 
 [[plugins]]
 repo = 'w0rp/ale'
-on_event = 'CursorHold'
 
 ####################
 # Completion #######
@@ -265,6 +271,9 @@ repo = 'SirVer/ultisnips'
 if = 'has("python")'
 on_ft = ['snippets']
 on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -293,22 +302,21 @@ let g:echodoc#enable_at_startup=1
 '''
 
 [[plugins]]
+repo = 'zchee/deoplete-go'
+
+[[plugins]]
 repo = 'zchee/deoplete-jedi'
-on_ft = ['python']
 
 [[plugins]]
 repo = 'TMDeal/deoplete-clang'
-on_ft = ['c', 'cpp', 'cmake']
 
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
 if = 'executable("npm")'
-on_ft = ['javascript', 'javascript.jsx', 'html']
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
-name = 'deoplete-typescript'
-on_ft = 'typescript'
+if = 'executable("npm") && executable("tsserver")'
 
 ####################
 # Vim Extensions ###
@@ -346,33 +354,12 @@ let g:yankring_clipboard_monitor=0
 '''
 
 [[plugins]]
-repo = 'jeetsukumaran/vim-buffergator'
-name = 'buffergator'
-on_cmd = ['BuffergatorToggle', 'BuffergatorMruCycleNext', 'BuffergatorMruCyclePrev']
-hook_source = '''
-let g:buffergator_suppress_keymaps=1
-'''
-
-[[plugins]]
 repo = 'tomtom/tcomment_vim'
 name = 'tcomment'
 hook_add = '''
 let g:tcommentMapLeader1=''
 let g:tcommentMapLeader2=''
 '''
-
-####################
-# Text Objects #####
-####################
-
-[[plugins]]
-repo = 'kana/vim-textobj-user'
-on_func = 'textobj#user#'
-
-[[plugins]]
-repo = 'mjbrownie/django-template-textobjects'
-on_ft = ['python', 'htmldjango']
-depends = 'vim-textobj-user'
 
 ####################
 # UI ###############
@@ -406,6 +393,7 @@ name = 'lightline'
 
 [[plugins]]
 repo = 'sbdchd/vim-shebang'
+name = 'shebang'
 on_cmd = ['ShebangInsert']
 
 [[plugins]]
@@ -413,24 +401,8 @@ repo = 'godlygeek/tabular'
 on_cmd = ['Tabularize']
 
 [[plugins]]
-repo = 'jpalardy/vim-slime'
-name = 'slime'
-on_if = 'has($TMUX)'
-hook_add = '''
-let g:slime_target='tmux'
-let g:slime_paste_file=$EDITOR_ROOT . '/.slime_paste'
-let g:slime_default_config={'socket_name': 'default', 'target_pane': '1.2'}
-let g:slime_python_ipython=1
-'''
-
-[[plugins]]
 repo = 'sbdchd/neoformat'
 on_cmd = ['Neoformat']
-
-[[plugins]]
-repo = 'brooth/far.vim'
-name = 'far'
-on_cmd = ['Far', 'Farp', 'Fardo', 'Refar', 'Farundo', 'F']
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
