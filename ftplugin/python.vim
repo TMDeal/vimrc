@@ -2,6 +2,9 @@ function! s:SetLeaderGuideMappings()
     call functions#InitLeaderModeMap()
 
     if dein#tap('leader-guide')
+        if dein#tap('shebang')
+            let g:leader_map.m['!'] = ['ShebangInsert', 'shebang']
+        endif
         if dein#tap('python-mode')
             if g:pymode_run==1
                 let g:leader_map.m.R = ['PymodeRun', 'Run code']
@@ -12,7 +15,7 @@ function! s:SetLeaderGuideMappings()
             endif
 
             if g:pymode_rope==1
-                let g:leader_map.m.r = {'name': 'rope'}
+                let g:leader_map.m.r = {'name': '[rope]'}
 
                 let g:leader_map.m.r.N = [
                             \'execute "PymodeRopeNewProject" . projectroot#guess() | let g:pymode_rope_regenerate_on_write=1',
@@ -33,22 +36,10 @@ function! s:SetLeaderGuideMappings()
             endif
         endif
         if dein#tap('python-virtualenv')
-            let g:leader_map.m.v = {'name': 'virtualenv'}
+            let g:leader_map.m.v = {'name': '[virtualenv]'}
             let g:leader_map.m.v.l = ['VirtualEnvList', 'show virtualenvs']
             let g:leader_map.m.v.d = ['VirtualEnvDeactivate', 'deactivate virtualenv']
-            let g:leader_map.m.v.a = ['call functions#ExecuteWithInput("VirtualEnvActivate", "env", "customlist,complete#virtualenv#Env")', "activate virtualenv"]
-        endif
-        if dein#tap('pony')
-            if exists('b:is_django')
-                let g:leader_map.m.d = {'name': 'django'}
-                let g:leader_map.m.d.a = ['call functions#ExecuteWithInput("Dadmin", "app", "customlist,complete#django#GoToAdmin")', 'GoTo admin']
-                let g:leader_map.m.d.m = ['call functions#ExecuteWithInput("Dmodels", "app", "customlist,complete#django#GoToModels")', 'GoTo models']
-                let g:leader_map.m.d.s = ['call functions#ExecuteWithInput("Dsettings", "app", "customlist,complete#django#GoToSettings")', 'GoTo settings']
-                let g:leader_map.m.d.t = ['call functions#ExecuteWithInput("Dtests", "app", "customlist,complete#django#GoToTests")', 'GoTo tests']
-                let g:leader_map.m.d.u = ['call functions#ExecuteWithInput("Durls", "app", "customlist,complete#django#GoToUrls")', 'GoTo urls']
-                let g:leader_map.m.d.v = ['call functions#ExecuteWithInput("Dviews", "app", "customlist,complete#django#GoToViews")', 'GoTo views']
-                let g:leader_map.m.d.M = ['call functions#ExecuteWithInput("Dmanage", "args", "customlist,complete#django#Manage")', 'manage']
-            endif
+            let g:leader_map.m.v.a = ['call functions#ExecuteWithInput("VirtualEnvActivate", "env", "customlist,complete#virtualenv#Env")', 'activate virtualenv']
         endif
         if dein#tap('pydocstring')
             let g:leader_map.m.D = ['Pydocstring', 'pydocstring']

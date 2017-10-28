@@ -59,15 +59,6 @@ name = 'pydocstring'
 on_ft = ['python']
 
 [[plugins]]
-repo = 'tweekmonster/django-plus.vim'
-name = 'django-plus'
-
-[[plugins]]
-repo = 'jmcomets/vim-pony'
-name = 'pony'
-on_if = 'exists("b:is_django")'
-
-[[plugins]]
 repo = 'tweekmonster/impsort.vim'
 name = 'impsort'
 on_ft = ['python']
@@ -111,7 +102,7 @@ nmap ]g <Plug>(grammarous-move-to-previous-error)
 [[plugins]]
 repo = 'vim-scripts/Emmet.vim'
 name = 'emmet'
-on_ft = ['html', 'htmldjango', 'javascript', 'javascript.jsx', 'jinja']
+on_ft = ['html', 'javascript', 'javascript.jsx', 'jinja', 'gohtmltmpl']
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
