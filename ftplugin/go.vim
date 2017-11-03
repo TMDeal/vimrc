@@ -2,19 +2,23 @@ function! s:SetLeaderGuideMappings()
     call functions#InitLeaderModeMap()
 
     if dein#tap('leader-guide')
+        if dein#tap('godebug')
+            let g:leader_map.m.d = {'name': '[debug]'}
+            let g:leader_map.m.d.b = ['GoToggleBreakpoint', 'breakpoint']
+            let g:leader_map.m.d.d = ['GoDebug', 'godebug']
+            let g:leader_map.m.d.t = ['GoDebugTest', 'godebug test']
+        endif
         if dein#tap('go')
             let g:leader_map.m.t = ['GoBuildTags', 'build tags']
 
-            if dein#tap('fzf')
-                let g:leader_map.m.d = ['GoDecls', 'show declarations in file']
-                let g:leader_map.m.D = ['GoDeclsDir', 'show declarations in dir']
-            endif
 
             let g:leader_map.m.g = {'name': '[go]'}
             let g:leader_map.m.g.r = ['GoRun!', 'run']
             let g:leader_map.m.g.b = ['GoBuild!', 'build']
             let g:leader_map.m.g.i = ['GoInstall!', 'install']
             let g:leader_map.m.g.g = ['GoGenerate!', 'generate']
+            let g:leader_map.m.g.p = ['call feedkeys(":GoPath ")', 'GOPATH']
+            let g:leader_map.m.g.P = ['GoPlay', 'go play']
 
             let g:leader_map.m.i = {'name': '[info]'}
             let g:leader_map.m.i.i = ['GoInfo', 'info']
@@ -28,6 +32,10 @@ function! s:SetLeaderGuideMappings()
             let g:leader_map.m.i.p = ['GoChannelPeers', 'channel peers']
             let g:leader_map.m.i.r = ['GoReferrers', 'show referrers']
             let g:leader_map.m.i.s = ['GoSameIdsToggle', 'toggle show same ids']
+            if dein#tap('fzf')
+                let g:leader_map.m.i.L = ['GoDecls', 'show declarations in file']
+                let g:leader_map.m.i.l = ['GoDeclsDir', 'show declarations in dir']
+            endif
 
             let g:leader_map.m.r = {'name': '[refactor]'}
             let g:leader_map.m.r.r = ['GoRename', 'rename']
@@ -53,9 +61,9 @@ function! s:SetLeaderGuideMappings()
 
             let g:leader_map.m.I = {'name': '[import]'}
             let g:leader_map.m.I.I = ['GoImports', 'add/remove']
-            let g:leader_map.m.I.i = ['call functions#ExecuteWithInput("GoImport!", "package", "customlist,go#package#Complete")', 'import']
-            let g:leader_map.m.I.a = ['call functions#ExecuteWithInput("GoImportAs", "package as", "customlist,go#package#Complete")', 'import as']
-            let g:leader_map.m.I.d = ['call functions#ExecuteWithInput("GoDrop", "package", "customlist,go#package#Complete")', 'drop']
+            let g:leader_map.m.I.i = ['call feedkeys(":GoImport! ")', 'import']
+            let g:leader_map.m.I.a = ['call feedkeys(":GoImportAs ")', 'import as']
+            let g:leader_map.m.I.d = ['call feedkeys(":GoDrop ")', 'drop']
 
             let g:leader_map.m.t = {'name': '[test]'}
             let g:leader_map.m.t.a = ['GoTest', 'test all']
@@ -73,12 +81,11 @@ augroup my_autocmds
 augroup END
 
 if dein#tap('go')
-    " let g:go_template_autocreate=0
     let g:go_disable_autoinstall=0
     let g:go_auto_type_info=0
     let g:go_metalinter_autosave=0
     let g:go_gocode_unimported_packages=1
-    let g:go_fmt_command="goimports"
+    let g:go_fmt_command='goimports'
     let g:go_list_height=5
 
     let g:go_highlight_operators=1

@@ -9,9 +9,9 @@ if dein#tap('fugitive')
         let g:leader_map.g.r = ['Gread', 'read']
         let g:leader_map.g.w = ['Gwrite', 'write']
         let g:leader_map.g.l = ['Glog', 'log']
-        let g:leader_map.g.p = ['call functions#ExecuteWithInput("Ggrep", "grep")', 'grep']
-        let g:leader_map.g.m = ['call functions#ExecuteWithInput("Gmove", "move")', 'move']
-        let g:leader_map.g.b = ['call functions#ExecuteWithInput("Git branch", "switch branch")', 'branch']
-        let g:leader_map.g.o = ['call functions#ExecuteWithInput("Git checkout", "checkout")', 'checkout']
+        let g:leader_map.g.p = ['call feedkeys(":Ggrep ")', 'grep']
+        let g:leader_map.g.m = ['call feedkeys(":Gmove ")', 'move']
+        let g:leader_map.g.b = ['call feedkeys(":Git branch ")', 'branch']
+        let g:leader_map.g.o = ['call feedkeys(":Git checkout ")', 'checkout']
     endif
 endif

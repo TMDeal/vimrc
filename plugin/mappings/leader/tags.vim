@@ -1,5 +1,5 @@
 if dein#tap('leader-guide')
-    let g:leader_map.t.f = ['call functions#ExecuteWithInput("tag", "find", "tag")', 'find tag']
+    let g:leader_map.t.f = ['call feedkeys(":tag ")', 'find tag']
 
     if dein#tap('tagbar')
         let g:leader_map.t.t = ['TagbarToggle', 'Tagbar']

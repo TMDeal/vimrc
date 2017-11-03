@@ -35,21 +35,6 @@ function! functions#LocPrev()
     endtry
 endfunction
 
-function! functions#ExecuteWithInput(command, prompt, ...) abort
-    call inputsave()
-    if a:0 == 1
-        let l:arg = input(a:prompt . ': ', "", a:1)
-    else
-        let l:arg = input(a:prompt . ': ')
-    endif
-    call inputrestore()
-
-    let l:command = '' . a:command . ' ' . l:arg
-
-    execute 'silent! ' .  l:command
-    execute 'silent! redraw!'
-endfunction
-
 function! functions#InitLeaderModeMap()
     let g:leader_map.m = {'name': '[mode]'}
 endfunction

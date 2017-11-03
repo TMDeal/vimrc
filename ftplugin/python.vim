@@ -39,7 +39,7 @@ function! s:SetLeaderGuideMappings()
             let g:leader_map.m.v = {'name': '[virtualenv]'}
             let g:leader_map.m.v.l = ['VirtualEnvList', 'show virtualenvs']
             let g:leader_map.m.v.d = ['VirtualEnvDeactivate', 'deactivate virtualenv']
-            let g:leader_map.m.v.a = ['call functions#ExecuteWithInput("VirtualEnvActivate", "env", "customlist,complete#virtualenv#Env")', 'activate virtualenv']
+            let g:leader_map.m.v.a = ['call feedkeys(":VirtualEnvActivate ")', 'activate virtualenv']
         endif
         if dein#tap('pydocstring')
             let g:leader_map.m.D = ['Pydocstring', 'pydocstring']

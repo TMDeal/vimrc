@@ -5,7 +5,7 @@ if dein#tap('leader-guide')
         let g:leader_map.y.c = ['YRClear', 'clear']
         let g:leader_map.y.y = ['YRShow', 'show']
         let g:leader_map.y.g = ['YRGetElem', 'get element']
-        let g:leader_map.y.P = ['call functions#ExecuteWithInput("YRPush", "push")', 'push']
-        let g:leader_map.y.p = ['call functions#ExecuteWithInput("YRPop", "pop")', 'pop']
+        let g:leader_map.y.P = ['call feedkeys(":YRPush ")', 'push']
+        let g:leader_map.y.p = ['call feedkeys(":YRPop ")', 'pop']
     endif
 endif
