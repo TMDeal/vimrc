@@ -258,57 +258,78 @@ repo = 'w0rp/ale'
 repo = 'Raimondi/delimitMate'
 on_event = 'InsertEnter'
 
-[[plugins]]
-repo = 'SirVer/ultisnips'
-if = 'has("python")'
-on_ft = ['snippets']
-on_event = 'InsertEnter'
+# [[plugins]]
+# repo = 'SirVer/ultisnips'
+# if = 'has("python")'
+# on_ft = ['snippets']
+# on_event = 'InsertEnter'
+
+# [[plugins]]
+# repo = 'honza/vim-snippets'
 
 [[plugins]]
-repo = 'honza/vim-snippets'
+repo = 'Shougo/neosnippet'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-name = 'deoplete'
-if = 'has("nvim")'
-on_event = 'InsertEnter'
-hook_source = '''
-source $EDITOR_ROOT/config/deoplete.vim
-'''
+repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
 name = 'neoinclude'
-on_source = 'deoplete'
 
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
-name = 'context-filetype'
-on_source = 'deoplete'
+repo = 'roxma/nvim-completion-manager'
+name = 'ncm'
+if = 'has("python3")'
 
 [[plugins]]
-repo = 'Shougo/echodoc.vim'
-name = 'echodoc'
-hook_add = '''
-let g:echodoc#enable_at_startup=1
-'''
+repo = 'roxma/vim-hug-neovim-rpc'
+if = '!has("nvim")'
 
 [[plugins]]
-repo = 'zchee/deoplete-go'
+repo = 'roxma/ncm-clang'
 
 [[plugins]]
-repo = 'zchee/deoplete-jedi'
-
-[[plugins]]
-repo = 'TMDeal/deoplete-clang'
-
-[[plugins]]
-repo = 'carlitux/deoplete-ternjs'
-if = 'executable("npm")'
+repo = 'roxma/nvim-cm-tern'
+build = 'npm install'
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
 if = 'executable("npm") && executable("tsserver")'
+
+# [[plugins]]
+# repo = 'Shougo/echodoc.vim'
+# name = 'echodoc'
+# hook_add = '''
+# let g:echodoc#enable_at_startup=1
+# '''
+#
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# name = 'deoplete'
+# if = 'has("nvim")'
+# on_event = 'InsertEnter'
+# hook_source = '''
+# source $EDITOR_ROOT/config/deoplete.vim
+# '''
+#
+# [[plugins]]
+# repo = 'Shougo/context_filetype.vim'
+# name = 'context-filetype'
+# on_source = 'deoplete'
+#
+# [[plugins]]
+# repo = 'zchee/deoplete-go'
+#
+# [[plugins]]
+# repo = 'zchee/deoplete-jedi'
+#
+# [[plugins]]
+# repo = 'TMDeal/deoplete-clang'
+#
+# [[plugins]]
+# repo = 'carlitux/deoplete-ternjs'
+# if = 'executable("npm")'
 
 ####################
 # Vim Extensions ###
