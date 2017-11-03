@@ -73,6 +73,11 @@ name = 'go'
 on_cmd = ['GoInstallBinaries', 'GoUpdateBinaries']
 on_ft = ['go', 'gohtmltmpl']
 
+[[plugins]]
+repo = 'jodosha/vim-godebug'
+name = 'godebug'
+on_cmd = ['GoToggleBreakpoint', 'GoDebug', 'GoDebugTest']
+
 ####################
 # Latex ############
 ####################
