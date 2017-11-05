@@ -1,5 +1,5 @@
 function! s:SetLeaderGuideMappings()
-    call functions#InitLeaderModeMap()
+    call leader#SetupMode()
 
     if dein#tap('leader-guide')
         if dein#tap('jsdoc')
@@ -17,6 +17,9 @@ function! s:SetLeaderGuideMappings()
             let g:leader_map.m.r = ['TSRename', 'rename under cursor']
             let g:leader_map.m.i = ['TSImport', 'import under cursor']
             let g:leader_map.m.e = ['TSEditConfig', 'edit config']
+        endif
+        if dein#tap('lsp') && has_key(g:LanguageClient_serverCommands, 'typescript') == 1
+            call leader#SetupLSP()
         endif
     endif
 endfunction

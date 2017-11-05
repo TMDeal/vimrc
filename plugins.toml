@@ -135,13 +135,6 @@ hook_add = '''
 let g:angular_cli_stylesheet_format="scss"
 '''
 
-[[plugins]]
-repo = 'ternjs/tern_for_vim'
-name = 'ternjs'
-if = 'executable("npm")'
-build = 'npm install'
-on_ft = ['javascript', 'javascript.jsx']
-
 ####################
 # Filetype #########
 ####################
@@ -162,7 +155,8 @@ name = 'jinja'
 repo = 'sheerun/vim-polyglot'
 name = 'polyglot'
 hook_add = '''
-let g:polyglot_disabled=['javascript', 'jsx', 'typescript']
+let g:polyglot_disabled=['javascript', 'typescript']
+let g:jsx_ext_required=1
 '''
 
 [[plugins]]
@@ -179,11 +173,6 @@ let g:javascript_plugin_jsdoc=1
 let g:javascript_plugin_ngdoc=1
 let g:javascript_plugin_flow=1
 '''
-
-[[plugins]]
-repo = 'mxw/vim-jsx'
-name = 'jsx'
-on_ft = ['javascript', 'javascript.jsx']
 
 ####################
 # Project ##########
@@ -258,15 +247,6 @@ repo = 'w0rp/ale'
 repo = 'Raimondi/delimitMate'
 on_event = 'InsertEnter'
 
-# [[plugins]]
-# repo = 'SirVer/ultisnips'
-# if = 'has("python")'
-# on_ft = ['snippets']
-# on_event = 'InsertEnter'
-
-# [[plugins]]
-# repo = 'honza/vim-snippets'
-
 [[plugins]]
 repo = 'Shougo/neosnippet'
 
@@ -278,58 +258,57 @@ repo = 'Shougo/neoinclude.vim'
 name = 'neoinclude'
 
 [[plugins]]
-repo = 'roxma/nvim-completion-manager'
-name = 'ncm'
-if = 'has("python3")'
+repo = 'autozimu/LanguageClient-neovim'
+name = 'lsp'
 
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 if = '!has("nvim")'
 
 [[plugins]]
-repo = 'roxma/ncm-clang'
+repo = 'roxma/nvim-yarp'
+if = '!has("nvim")'
+
+# [[plugins]]
+# repo = 'roxma/nvim-completion-manager'
+# name = 'ncm'
+# if = 'has("python3")'
+#
+# [[plugins]]
+# repo = 'roxma/nvim-cm-tern'
+# build = 'npm install'
+# name = 'ncm-tern'
 
 [[plugins]]
-repo = 'roxma/nvim-cm-tern'
-build = 'npm install'
+repo = 'Shougo/echodoc.vim'
+name = 'echodoc'
+hook_add = '''
+let g:echodoc#enable_at_startup=1
+'''
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+name = 'deoplete'
+on_event = 'InsertEnter'
+hook_source = '''
+source $EDITOR_ROOT/config/deoplete.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+name = 'context-filetype'
+on_source = 'deoplete'
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+
+[[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+if = 'executable("npm")'
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
 if = 'executable("npm") && executable("tsserver")'
-
-# [[plugins]]
-# repo = 'Shougo/echodoc.vim'
-# name = 'echodoc'
-# hook_add = '''
-# let g:echodoc#enable_at_startup=1
-# '''
-#
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# name = 'deoplete'
-# if = 'has("nvim")'
-# on_event = 'InsertEnter'
-# hook_source = '''
-# source $EDITOR_ROOT/config/deoplete.vim
-# '''
-#
-# [[plugins]]
-# repo = 'Shougo/context_filetype.vim'
-# name = 'context-filetype'
-# on_source = 'deoplete'
-#
-# [[plugins]]
-# repo = 'zchee/deoplete-go'
-#
-# [[plugins]]
-# repo = 'zchee/deoplete-jedi'
-#
-# [[plugins]]
-# repo = 'TMDeal/deoplete-clang'
-#
-# [[plugins]]
-# repo = 'carlitux/deoplete-ternjs'
-# if = 'executable("npm")'
 
 ####################
 # Vim Extensions ###

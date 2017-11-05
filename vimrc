@@ -7,7 +7,7 @@ let g:mapleader="\<SPACE>"
 let g:maplocalleader="\<SPACE>"
 
 if !exists('g:leader_map')
-    call functions#InitLeaderMap()
+    call leader#Init()
 endif
 
 if has('nvim')

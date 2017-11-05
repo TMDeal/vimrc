@@ -1,5 +1,5 @@
 function! s:SetLeaderGuideMappings()
-    call functions#InitLeaderModeMap()
+    call leader#SetupMode()
 
     if dein#tap('leader-guide')
         if dein#tap('godebug')
@@ -86,6 +86,7 @@ if dein#tap('go')
     let g:go_metalinter_autosave=0
     let g:go_gocode_unimported_packages=1
     let g:go_fmt_command='goimports'
+    let g:go_snippet_engine='neosnippet'
     let g:go_list_height=5
 
     let g:go_highlight_operators=1

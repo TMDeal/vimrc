@@ -1,16 +1,3 @@
-if dein#tap('ultisnips')
-    imap <expr> <Plug>(ultisnips_expand) ("\<c-k>")
-    let g:UltiSnipsExpandTrigger='<c-k>'
-    let g:UltiSnipsJumpForwardTrigger='<c-k>'
-    let g:UltiSnipsJumpBackwardTrigger='<c-j>'
-    let g:UltiSnipsRemoveSelectModeMappings=0
-    " let g:UltiSnipsExpandTrigger='<C-k>'
-    " let g:UltiSnipsJumpForwardTrigger='<C-k>'
-    " let g:UltiSnipsJumpBackwardTrigger='<C-j>'
-    " let g:UltiSnipsRemoveSelectModeMappings=0
-    let g:UltiSnipsSnippetDirectories=['ultisnips']
-endif
-
 if dein#tap('neosnippet')
     let g:neosnippet#enable_snipmate_compatibility=1
     let g:neosnippet#enable_completed_snippet=1
@@ -19,15 +6,43 @@ if dein#tap('neosnippet')
     imap <C-k>     <Plug>(neosnippet_expand_or_jump)
     smap <C-k>     <Plug>(neosnippet_expand_or_jump)
     xmap <C-k>     <Plug>(neosnippet_expand_target)
-    inoremap <silent> <c-u> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
-    vmap <c-u>     <Plug>(neosnippet_expand_target)
+    " inoremap <silent> <c-u> <c-r>=cm#sources#neosnippet#trigger_or_popup("\<Plug>(neosnippet_expand_or_jump)")<cr>
+    " vmap <c-u>     <Plug>(neosnippet_expand_target)
 
-    " let g:neosnippet#disable_runtime_snippets = {
-    "             \   '_' : 1,
-    "             \ }
+    " let g:neosnippet#disable_runtime_snippets={'_': 1}
 
     if has('conceal')
         set conceallevel=2 concealcursor=niv
+    endif
+endif
+
+if dein#tap('lsp')
+    let g:LanguageClient_autoStart=1
+    let g:LanguageClient_diagnosticsEnable=0
+    let g:LanguageClient_diagnosticsList='location'
+    let g:LanguageClient_windowLogMessageLevel='Error'
+    let g:LanguageClient_serverCommands={}
+
+    if executable('javascript-typescript-stdio')
+        let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+        let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
+    endif
+    if executable('html-languageserver')
+        let g:LanguageClient_serverCommands.html = ['html-languageserver', '--stdio']
+    endif
+    if executable('css-languageserver')
+        let g:LanguageClient_serverCommands.css = ['css-languageserver', '--stdio']
+        let g:LanguageClient_serverCommands.scss = ['css-languageserver', '--stdio']
+        let g:LanguageClient_serverCommands.less = ['css-languageserver', '--stdio']
+    endif
+    if executable('json-languageserver')
+        let g:LanguageClient_serverCommands.json = ['json-languageserver', '--stdio']
+    endif
+    if executable('pyls')
+        let g:LanguageClient_serverCommands.python = ['pyls']
+    endif
+    if executable('clangd')
+        let g:LanguageClient_serverCommands.cpp = ['clangd']
     endif
 endif
 
@@ -55,7 +70,7 @@ if dein#tap('ncm')
                 \ }
 
     let g:cm_matcher={
-                \ 'module': 'cm_matchers.prefix_matcher',
+                \ 'module': 'cm_matchers.fuzzy_matcher',
                 \ 'case': 'smartcase'
                 \ }
 

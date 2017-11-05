@@ -1,10 +1,19 @@
 let g:deoplete#enable_at_startup=1
 
-let g:deoplete#omni_patterns={} 
-let g:deoplete#omni#input_patterns={} 
-let g:neoinclude#exts={}
+if !exists('g:deoplete#omni_patterns')
+    let g:deoplete#omni_patterns={} 
+endif
+if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns={} 
+endif
+if !exists('g:deoplete#ignore_sources')
+    let g:deoplete#ignore_sources={}
+endif
+if !exists('g:neoinclude#exts')
+    let g:neoinclude#exts={}
+endif
 
-let g:neoinclude#exts.cpp = ['', 'h', 'hpp', 'hh']
+let g:neoinclude#exts.cpp=['', 'h', 'hpp', 'hh']
 
 let g:deoplete#enable_smart_case=0
 let g:deoplete#max_menu_width=80
@@ -13,10 +22,8 @@ let g:deoplete#file#enable_buffer_path=1
 let g:deoplete#sources#ternjs#types=1
 let g:deoplete#sources#ternjs#docs=1
 
-let g:tern_request_timeout=1
-let g:tern_show_signature_in_pum=0
-let g:tern#command=['tern']
-let g:tern#arguments=['--persistent']
+let g:deoplete#ignore_sources.javascript=['LanguageClient']
+let g:deoplete#ignore_sources.typescript=['LanguageClient']
 
 let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header='/usr/lib/clang'

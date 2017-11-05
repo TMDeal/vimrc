@@ -1,5 +1,5 @@
 function! s:SetLeaderGuideMappings()
-    call functions#InitLeaderModeMap()
+    call leader#SetupMode()
 
     if dein#tap('leader-guide')
         if dein#tap('DoxygenToolkit')
@@ -13,6 +13,9 @@ function! s:SetLeaderGuideMappings()
             let g:leader_map.m.f.h = ['FSHere', 'switch here']
             let g:leader_map.m.f.r = ['FSSplitRight', 'switch right split']
             let g:leader_map.m.f.l = ['FSSplitLeft', 'switch left split']
+        endif
+        if dein#tap('lsp') && has_key(g:LanguageClient_serverCommands, 'cpp') == 1
+            call leader#SetupLSP()
         endif
     endif
 endfunction

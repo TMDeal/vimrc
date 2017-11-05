@@ -1,5 +1,5 @@
 function! s:SetLeaderGuideMappings()
-    call functions#InitLeaderModeMap()
+    call leader#SetupMode()
 
     if dein#tap('leader-guide')
         if dein#tap('shebang')
@@ -47,6 +47,9 @@ function! s:SetLeaderGuideMappings()
         if dein#tap('impsort')
             let g:leader_map.m.I = ['ImpSort!', 'sort imports']
         endif
+        if dein#tap('lsp') && has_key(g:LanguageClient_serverCommands, 'python') == 1
+            call leader#SetupLSP()
+        endif
     endif
 endfunction
 
@@ -62,6 +65,10 @@ augroup my_autocmds
     au BufEnter * if &ft ==# 'python' | call s:SetLeaderGuideMappings() | endif
     au BufEnter * if &ft ==# 'python' | call s:RopeProjectIfExistsSettings() | endif
 augroup END
+
+if dein#tap('ncm')
+    let g:cm_sources_override['cm-jedi']={'enable':0}
+endif
 
 if dein#tap('python-mode')
     " Common
@@ -89,11 +96,9 @@ if dein#tap('python-mode')
     let g:pymode_doc_bind='K'
 
     " Virtualenv
-    " DISABLED
     let g:pymode_virtualenv=0
 
     " Lint
-    " DISABLED
     let g:pymode_lint=0
 
     " Run
@@ -106,13 +111,12 @@ if dein#tap('python-mode')
     let g:pymode_breakpoint_cmd=''
 
     " Rope
-    let g:pymode_rope=1
+    let g:pymode_rope=0
     let g:pymode_rope_lookup_project=0
     let g:pymode_rope_project_root=''
     let g:pymode_rope_ropefolder='.ropeproject'
     let g:pymode_rope_completion=0
     let g:pymode_rope_goto_definition_cmd='new'
-    call s:RopeProjectIfExistsSettings()
 
     let g:pymode_rope_show_doc_bind          = ''
     let g:pymode_rope_organize_imports_bind  = ''
