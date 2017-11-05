@@ -2,3 +2,4 @@ bundle
 .cache
 .localvimrc_persistent
 .netrwhist
+init.vim
