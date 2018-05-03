@@ -11,13 +11,6 @@ options word
     ${0:TARGET}
   }
 
-snippet function2
-abbr    func2
-options head
-  function ${1:function_name}(${2:argument}) {
-    ${0:TARGET}
-  }
-
 snippet proto
 options head
   ${1:#:class_name}.prototype.${2:#:method_name} = function(${3:#:first_argument}) {
@@ -35,8 +28,8 @@ options head
     ${0:TARGET}
   }
 
-snippet if-else
-abbr ife
+snippet ife
+abbr if else
 options head
   if (${1:#:condition}) {
     ${2:TARGET}
@@ -78,7 +71,8 @@ options head
     ${3}
   }
 
-snippet try_finally
+snippet tryf
+abbr try finally
 options head
   try {
     ${1:TARGET}
