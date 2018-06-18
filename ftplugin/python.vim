@@ -66,10 +66,6 @@ augroup my_autocmds
     au BufEnter * if &ft ==# 'python' | call s:RopeProjectIfExistsSettings() | endif
 augroup END
 
-if dein#tap('ncm')
-    let g:cm_sources_override['cm-jedi']={'enable':0}
-endif
-
 if dein#tap('python-mode')
     " Common
     let g:pymode=1
@@ -121,6 +117,7 @@ if dein#tap('python-mode')
     let g:pymode_rope_show_doc_bind          = ''
     let g:pymode_rope_organize_imports_bind  = ''
     let g:pymode_rope_move_bind              = ''
+    let g:pymode_rope_find_it_bind           = ''
     let g:pymode_rope_rename_bind            = ''
     let g:pymode_rope_autoimport_bind        = ''
     let g:pymode_rope_use_function_bind      = ''

@@ -11,7 +11,6 @@ function! s:SetLeaderGuideMappings()
         if dein#tap('go')
             let g:leader_map.m.t = ['GoBuildTags', 'build tags']
 
-
             let g:leader_map.m.g = {'name': '[go]'}
             let g:leader_map.m.g.r = ['GoRun!', 'run']
             let g:leader_map.m.g.b = ['GoBuild!', 'build']
@@ -40,7 +39,7 @@ function! s:SetLeaderGuideMappings()
             let g:leader_map.m.r = {'name': '[refactor]'}
             let g:leader_map.m.r.r = ['GoRename', 'rename']
             let g:leader_map.m.r.i = ['GoImpl', 'implement interface']
-            let g:leader_map.m.r.t = ['GoAddTags', 'add struct tags']
+            let g:leader_map.m.r.t = ['call feedkeys(":GoAddTags ")', 'add struct tags']
             let g:leader_map.m.r.T = ['GoRemoveTags', 'remove struct tags']
             let g:leader_map.m.r.k = ['GoKeyify', 'keyify struct']
 

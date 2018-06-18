@@ -96,4 +96,3 @@ function! clang#Config()
 
     return result
 endfunction
-

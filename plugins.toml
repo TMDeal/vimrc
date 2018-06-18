@@ -21,7 +21,7 @@ repo = 'EinfachToll/DidYouMean'
 name = 'did-you-mean'
 
 ####################
-# C/CPP ############
+# C/C++ ############
 ####################
 
 [[plugins]]
@@ -40,12 +40,36 @@ name = 'headerguard'
 on_ft = ['c', 'cpp']
 
 ####################
+# Ruby #############
+####################
+
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+name = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+name = 'rails'
+
+####################
 # Python ###########
 ####################
 
 [[plugins]]
+repo = 'jpalardy/vim-slime'
+name = 'slime'
+on_if = 'exists("$TMUX")'
+hook_add = '''
+let g:slime_target='tmux'
+let g:slime_paste_file=$EDITOR_ROOT . '/.slime_paste'
+let g:slime_default_config={'socket_name': 'default', 'target_pane': '1.2'}
+let g:slime_python_ipython=1
+'''
+
+[[plugins]]
 repo = 'python-mode/python-mode'
 on_ft = ['python']
+build = 'git submodule update --init --recursive'
 
 [[plugins]]
 repo = 'jmcantrell/vim-virtualenv'
@@ -79,28 +103,6 @@ name = 'godebug'
 on_cmd = ['GoToggleBreakpoint', 'GoDebug', 'GoDebugTest']
 
 ####################
-# Latex ############
-####################
-
-[[plugins]]
-repo = 'lervag/vimtex'
-on_ft = ['tex']
-
-[[plugins]]
-repo = 'xuhdev/vim-latex-live-preview'
-name = 'latex-live-preview'
-on_ft = ['tex']
-
-[[plugins]]
-repo = 'rhysd/vim-grammarous'
-name = 'grammarous'
-on_ft = ['tex']
-hook_add = '''
-nmap ]g <Plug>(grammarous-move-to-next-error)
-nmap ]g <Plug>(grammarous-move-to-previous-error)
-'''
-
-####################
 # Web ##############
 ####################
 
@@ -113,15 +115,24 @@ on_ft = ['html', 'javascript', 'javascript.jsx', 'jinja', 'gohtmltmpl']
 repo = 'alvan/vim-closetag'
 name = 'closetag'
 hook_add = '''
-let g:closetag_filenames="*.html,*.php,*.xhtml,*.xml,*.jsx,*.js,*.hbs,*.handlebars,*.jinja,*.tsx,*.vue,*.tmpl"
+let g:closetag_filenames="*.html,*.php,*.xhtml,*.xml,*.jsx,*.js,*.hbs,*.handlebars,*.jinja,*.tsx,*.vue,*.tmpl,*.erb"
 let g:closetag_shortcut='>'
 let g:closetag_close_shortcut='<C-x>.'
 '''
 
 [[plugins]]
+repo = 'tpope/vim-ragtag'
+name = 'ragtag'
+
+[[plugins]]
 repo = 'dunckr/js_alternate.vim'
 name = 'js-alternate'
 on_func = ['js_alternate#run']
+hook_add = '''
+let g:js_alternate#src_types = ['lib', 'src', 'app', 'scripts', 'js', 'javascript', 'frontend']
+let g:js_alternate#test_types = ['tests', 'test', 'spec', 'features']
+let g:js_alternate#extension_types = ['js', 'jsx', 'coffee', 'ts', 'elm', 'purs']
+'''
 
 [[plugins]]
 repo = 'heavenshell/vim-jsdoc'
@@ -140,38 +151,47 @@ let g:angular_cli_stylesheet_format="scss"
 ####################
 
 [[plugins]]
-repo = 'othree/javascript-libraries-syntax.vim'
-name = 'javascript-libraries-syntax'
+repo = 'jparise/vim-graphql'
+name = 'graphql'
 
 [[plugins]]
-repo = 'alampros/vim-react-keywords'
-name = 'react-keywords'
+repo = 'othree/javascript-libraries-syntax.vim'
+name = 'javascript-libraries-syntax'
 
 [[plugins]]
 repo = 'lepture/vim-jinja'
 name = 'jinja'
 
 [[plugins]]
-repo = 'sheerun/vim-polyglot'
-name = 'polyglot'
-hook_add = '''
-let g:polyglot_disabled=['javascript', 'typescript']
-let g:jsx_ext_required=1
-'''
+repo = 'cakebaker/scss-syntax.vim'
+name = 'scss'
+
+[[plugins]]
+repo = 'othree/html5.vim'
+name = 'html5'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+name = 'toml'
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
 name = 'typescript'
-on_ft = ['typescript']
 
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 name = 'javascript'
-on_ft = ['javascript', 'javascript.jsx', 'html']
 hook_add = '''
 let g:javascript_plugin_jsdoc=1
 let g:javascript_plugin_ngdoc=1
 let g:javascript_plugin_flow=1
+'''
+
+[[plugins]]
+repo = 'elzr/vim-json'
+name = 'json'
+hook_add = '''
+let g:vim_json_syntax_conceal=0
 '''
 
 ####################
@@ -190,10 +210,10 @@ let g:localvimrc_persistent=2
 let g:localvimrc_persistence_file=$EDITOR_ROOT . "/.localvimrc_persistent"
 '''
 
-[[plugins]]
-repo = 'ludovicchabant/vim-gutentags'
-name = 'gutentags'
-if = 'executable("ctags")'
+# [[plugins]]
+# repo = 'ludovicchabant/vim-gutentags'
+# name = 'gutentags'
+# if = 'executable("ctags")'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
@@ -214,7 +234,7 @@ repo = 'editorconfig/editorconfig-vim'
 name = 'editorconfig'
 on_if = 'filereadable(expand(projectroot#guess() . "/.editorconfig"))'
 hook_add = '''
-let g:EditorConfig_exclude_patterns = ['scp://.*']
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 '''
 
 [[plugins]]
@@ -240,15 +260,41 @@ let g:gitgutter_map_keys=0
 repo = 'w0rp/ale'
 
 ####################
-# Completion #######
+# Format ###########
 ####################
 
 [[plugins]]
-repo = 'Raimondi/delimitMate'
-on_event = 'InsertEnter'
+repo = 'sbdchd/neoformat'
+on_cmd = ['Neoformat']
+hook_add = '''
+let g:neoformat_only_msg_on_error = 1
+'''
+
+####################
+# Completion #######
+####################
+
+# [[plugins]]
+# repo = 'Raimondi/delimitMate'
+# on_event = 'InsertEnter'
+# hook_source = '''
+# source $EDITOR_ROOT/config/delimitMate.vim
+# '''
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+name = 'endwise'
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
+on_ft = ['neosnippet']
+on_event = 'InsertEnter'
+hook_source = '''
+source $EDITOR_ROOT/config/neosnippet.vim
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -259,7 +305,10 @@ name = 'neoinclude'
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
+if = 'has("nvim")'
 name = 'lsp'
+rev = 'next'
+build = 'bash install.sh'
 
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
@@ -268,16 +317,6 @@ if = '!has("nvim")'
 [[plugins]]
 repo = 'roxma/nvim-yarp'
 if = '!has("nvim")'
-
-# [[plugins]]
-# repo = 'roxma/nvim-completion-manager'
-# name = 'ncm'
-# if = 'has("python3")'
-#
-# [[plugins]]
-# repo = 'roxma/nvim-cm-tern'
-# build = 'npm install'
-# name = 'ncm-tern'
 
 [[plugins]]
 repo = 'Shougo/echodoc.vim'
@@ -303,12 +342,15 @@ on_source = 'deoplete'
 repo = 'zchee/deoplete-go'
 
 [[plugins]]
-repo = 'carlitux/deoplete-ternjs'
-if = 'executable("npm")'
+repo = 'zchee/deoplete-jedi'
+
+# [[plugins]]
+# repo = 'carlitux/deoplete-ternjs'
+# if = 'executable("tern")'
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
-if = 'executable("npm") && executable("tsserver")'
+if = 'executable("tsserver")'
 
 ####################
 # Vim Extensions ###
@@ -349,8 +391,8 @@ let g:yankring_clipboard_monitor=0
 repo = 'tomtom/tcomment_vim'
 name = 'tcomment'
 hook_add = '''
-let g:tcommentMapLeader1=''
-let g:tcommentMapLeader2=''
+let g:tcomment_mapleader1=''
+let g:tcomment_mapleader2=''
 '''
 
 ####################
@@ -393,12 +435,9 @@ repo = 'godlygeek/tabular'
 on_cmd = ['Tabularize']
 
 [[plugins]]
-repo = 'sbdchd/neoformat'
-on_cmd = ['Neoformat']
-
-[[plugins]]
 repo = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeToggle', 'NERDTreeFind']
+augroup = "FileExplorer"
 
 [[plugins]]
 repo = 'Xuyuanp/nerdtree-git-plugin'

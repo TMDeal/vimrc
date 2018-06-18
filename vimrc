@@ -20,13 +20,13 @@ set runtimepath+=$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim
 
 let g:root_markers=[
             \'.projectroot',
-            \'.git',
             \'.lvimrc',
             \'.clang_complete',
             \'tsconfig.json',
             \'manage.py',
             \'package.json',
-            \'Makefile'
+            \'angular.json',
+            \'.git'
             \]
 
 if !isdirectory(expand('$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim'))

@@ -10,6 +10,7 @@ endfunction
 
 function! leader#Init()
     let g:leader_map     = {}
+
     let g:leader_map.f   = {'name': '[filesystem]'}
     let g:leader_map.F   = {'name': '[Format]'}
     let g:leader_map.o   = {'name': '[open]'}
@@ -19,6 +20,8 @@ function! leader#Init()
     let g:leader_map.t   = {'name': '[tags]'}
     let g:leader_map.p   = {'name': '[fzf]'}
     let g:leader_map.y   = {'name': '[yankring]'}
+
+    let g:leader_map.u   = ['UndotreeToggle', 'undotree']
 endfunction
 
 function! leader#SetupLSP()

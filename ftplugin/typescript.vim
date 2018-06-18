@@ -5,6 +5,9 @@ function! s:SetLeaderGuideMappings()
         if dein#tap('jsdoc')
             let g:leader_map.m.D = ['JsDoc', 'JsDoc']
         endif
+        if dein#tap('js-alternate')
+            let g:leader_map.m.a = ['call js_alternate#run()', 'alternate file']
+        endif
         if dein#tap('nvim-typescript')
             let g:leader_map.m.s = {'name': '[tsserver]'}
             let g:leader_map.m.s.s = ['TSStart', 'start']
@@ -26,11 +29,13 @@ endfunction
 
 augroup my_autocmds
     au BufEnter * if &ft ==# 'typescript' | call s:SetLeaderGuideMappings() | endif
+    autocmd VimEnter * if exists(projectroot#guess() . '/angular.json') != '' | call angular_cli#init() | endif
+    " au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | endtry
 augroup END
 
 if dein#tap('nvim-typescript')
     let g:nvim_typescript#max_completion_detail=100
-    let g:nvim_typescript#type_info_on_hold=1
+    let g:nvim_typescript#type_info_on_hold=0
 endif
 
 setlocal indentkeys+=0.

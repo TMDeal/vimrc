@@ -8,6 +8,12 @@ augroup my_autocmds
         endif
     endif
 
+    "format files on save
+    " au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | endtry
+
+    autocmd VimEnter * silent! autocmd! FileExplorer
+    au BufNew,BufEnter,VimEnter * if isdirectory(expand("<amatch>")) | call dein#source("nerdtree") | endif
+
     au VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angular_cli#init() | endif
 
     "resize automatically
