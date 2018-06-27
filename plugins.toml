@@ -340,6 +340,7 @@ on_source = 'deoplete'
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
+build = 'make'
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
