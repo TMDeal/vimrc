@@ -39,6 +39,19 @@ repo = 'drmikehenry/vim-headerguard'
 name = 'headerguard'
 on_ft = ['c', 'cpp']
 
+[[plugins]]
+repo = 'octol/vim-cpp-enhanced-highlight'
+name = 'cpp-enhanced-hightlight'
+hook_add = '''
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_experimental_template_highlight = 0
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 0
+'''
+
 ######################
 # Elixer #############
 ######################
@@ -50,13 +63,6 @@ name = 'elixir'
 [[plugins]]
 repo = 'slashmili/alchemist.vim'
 name = 'alchemist'
-
-[[plugins]]
-repo = 'mhinz/vim-mix-format'
-name = 'mix-format'
-hook_add = '''
-let g:mix_format_on_save = 1
-'''
 
 ####################
 # Python ###########
@@ -94,6 +100,10 @@ repo = 'tweekmonster/impsort.vim'
 name = 'impsort'
 on_ft = ['python']
 
+[[plugins]]
+repo = 'lepture/vim-jinja'
+name = 'jinja'
+
 ####################
 # Go ###############
 ####################
@@ -104,9 +114,9 @@ name = 'go'
 on_cmd = ['GoInstallBinaries', 'GoUpdateBinaries']
 on_ft = ['go', 'gohtmltmpl']
 
-####################
-# Web ##############
-####################
+#########################
+# Markdown ##############
+#########################
 
 [[plugins]]
 repo = 'vim-scripts/Emmet.vim'
@@ -117,7 +127,7 @@ on_ft = ['html', 'javascript', 'javascript.jsx', 'jinja', 'gohtmltmpl', 'eelixir
 repo = 'alvan/vim-closetag'
 name = 'closetag'
 hook_add = '''
-let g:closetag_filenames="*.html,*.php,*.xhtml,*.xml,*.jsx,*.js,*.hbs,*.handlebars,*.jinja,*.tsx,*.vue,*.tmpl,*.erb"
+let g:closetag_filenames="*.html,*.php,*.xhtml,*.xml,*.jsx,*.js,*.hbs,*.handlebars,*.jinja,*.tsx,*.vue,*.tmpl,*.erb,*.html.eex"
 let g:closetag_shortcut='>'
 let g:closetag_close_shortcut='<C-x>.'
 '''
@@ -125,6 +135,22 @@ let g:closetag_close_shortcut='<C-x>.'
 [[plugins]]
 repo = 'tpope/vim-ragtag'
 name = 'ragtag'
+
+[[plugins]]
+repo = 'othree/html5.vim'
+name = 'html5'
+
+#####################
+# css ###############
+#####################
+
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+name = 'scss'
+
+#######################
+# js/ts ###############
+#######################
 
 [[plugins]]
 repo = 'dunckr/js_alternate.vim'
@@ -148,10 +174,6 @@ hook_add = '''
 let g:angular_cli_stylesheet_format="scss"
 '''
 
-####################
-# Filetype #########
-####################
-
 [[plugins]]
 repo = 'jparise/vim-graphql'
 name = 'graphql'
@@ -159,35 +181,6 @@ name = 'graphql'
 [[plugins]]
 repo = 'othree/javascript-libraries-syntax.vim'
 name = 'javascript-libraries-syntax'
-
-[[plugins]]
-repo = 'octol/vim-cpp-enhanced-highlight'
-name = 'cpp-enhanced-hightlight'
-hook_add = '''
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_experimental_simple_template_highlight = 1
-let g:cpp_experimental_template_highlight = 0
-let g:cpp_concepts_highlight = 1
-let g:cpp_no_function_highlight = 0
-'''
-
-[[plugins]]
-repo = 'lepture/vim-jinja'
-name = 'jinja'
-
-[[plugins]]
-repo = 'cakebaker/scss-syntax.vim'
-name = 'scss'
-
-[[plugins]]
-repo = 'othree/html5.vim'
-name = 'html5'
-
-[[plugins]]
-repo = 'cespare/vim-toml'
-name = 'toml'
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
@@ -201,6 +194,14 @@ let g:javascript_plugin_jsdoc=1
 let g:javascript_plugin_ngdoc=1
 let g:javascript_plugin_flow=1
 '''
+
+####################
+# Filetype #########
+####################
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+name = 'toml'
 
 [[plugins]]
 repo = 'elzr/vim-json'
@@ -225,10 +226,10 @@ let g:localvimrc_persistent=2
 let g:localvimrc_persistence_file=$EDITOR_ROOT . "/.localvimrc_persistent"
 '''
 
-[[plugins]]
-repo = 'ludovicchabant/vim-gutentags'
-name = 'gutentags'
-if = 'executable("ctags")'
+# [[plugins]]
+# repo = 'ludovicchabant/vim-gutentags'
+# name = 'gutentags'
+# if = 'executable("ctags")'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
@@ -251,6 +252,10 @@ on_if = 'filereadable(expand(projectroot#guess() . "/.editorconfig"))'
 hook_add = '''
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 '''
+
+###############
+# Git #########
+###############
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
@@ -285,6 +290,29 @@ hook_add = '''
 let g:neoformat_only_msg_on_error = 1
 '''
 
+[[plugins]]
+repo = 'godlygeek/tabular'
+on_cmd = ['Tabularize']
+
+########################
+# LanguageClient #######
+########################
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+if = 'has("nvim")'
+name = 'lsp'
+rev = 'next'
+build = 'bash install.sh'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+if = '!has("nvim")'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+if = '!has("nvim")'
+
 ####################
 # Completion #######
 ####################
@@ -305,21 +333,6 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
 name = 'neoinclude'
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-if = 'has("nvim")'
-name = 'lsp'
-rev = 'next'
-build = 'bash install.sh'
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-if = '!has("nvim")'
-
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-if = '!has("nvim")'
 
 [[plugins]]
 repo = 'Shougo/echodoc.vim'
@@ -418,17 +431,8 @@ repo = 'itchyny/lightline.vim'
 name = 'lightline'
 
 ####################
-# Extra ############
+# Trees ############
 ####################
-
-[[plugins]]
-repo = 'sbdchd/vim-shebang'
-name = 'shebang'
-on_cmd = ['ShebangInsert']
-
-[[plugins]]
-repo = 'godlygeek/tabular'
-on_cmd = ['Tabularize']
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -444,6 +448,15 @@ depends = 'nerdtree'
 [[plugins]]
 repo = 'mbbill/undotree'
 on_cmd = ['UndotreeToggle']
+
+####################
+# Extra ############
+####################
+
+[[plugins]]
+repo = 'sbdchd/vim-shebang'
+name = 'shebang'
+on_cmd = ['ShebangInsert']
 
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
