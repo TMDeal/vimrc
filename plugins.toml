@@ -39,40 +39,24 @@ repo = 'drmikehenry/vim-headerguard'
 name = 'headerguard'
 on_ft = ['c', 'cpp']
 
-
-####################
-# Rust #############
-####################
-
-[[plugins]]
-repo = 'mattn/webapi-vim'
-name = 'webapi'
+######################
+# Elixer #############
+######################
 
 [[plugins]]
-repo = 'rust-lang/rust.vim'
-name = 'rust'
-depends = 'webapi'
-on_ft = ['rust']
+repo = 'elixir-editors/vim-elixir'
+name = 'elixir'
 
 [[plugins]]
-repo = 'racer-rust/vim-racer'
-name = 'racer'
+repo = 'slashmili/alchemist.vim'
+name = 'alchemist'
 
 [[plugins]]
-repo = 'ron-rs/ron.vim'
-name = 'ron'
-
-####################
-# Ruby #############
-####################
-
-[[plugins]]
-repo = 'vim-ruby/vim-ruby'
-name = 'ruby'
-
-[[plugins]]
-repo = 'tpope/vim-rails'
-name = 'rails'
+repo = 'mhinz/vim-mix-format'
+name = 'mix-format'
+hook_add = '''
+let g:mix_format_on_save = 1
+'''
 
 ####################
 # Python ###########
@@ -127,7 +111,7 @@ on_ft = ['go', 'gohtmltmpl']
 [[plugins]]
 repo = 'vim-scripts/Emmet.vim'
 name = 'emmet'
-on_ft = ['html', 'javascript', 'javascript.jsx', 'jinja', 'gohtmltmpl']
+on_ft = ['html', 'javascript', 'javascript.jsx', 'jinja', 'gohtmltmpl', 'eelixir']
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
