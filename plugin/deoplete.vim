@@ -40,6 +40,7 @@ if dein#tap('deoplete')
     call deoplete#custom#option('omni_patterns', {
                 \ 'gohtmltmpl': ['<', '<[^>]*\s[[:alnum:]-]*']
                 \})
+
     inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
     inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
     inoremap <expr><C-g> deoplete#undo_completion()
