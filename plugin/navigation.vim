@@ -53,7 +53,7 @@ if dein#tap('fzf')
     let g:rg_command_grep = '
                 \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
                 \ -g "!*.{a,lock,png,jpg,jpeg,ico,svg}"
-                \ -g "!{.git,.cache,node_modules,bundle,build,pkg,vendor,third_party,bin,dist}/*" '
+                \ -g "!{.git,.cache,node_modules,bundle,build,pkg,vendor,third_party,bin,dist,target,_build,deps}/*" '
     command! -bang -nargs=* FzfRipgrep call fzf#vim#grep(g:rg_command_grep .shellescape(<q-args>), 1, <bang>0)
 endif
 

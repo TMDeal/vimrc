@@ -2,12 +2,6 @@ function! s:SetLeaderGuideMappings()
     call leader#SetupMode()
 
     if dein#tap('leader-guide')
-        if dein#tap('godebug')
-            let g:leader_map.m.d = {'name': '[debug]'}
-            let g:leader_map.m.d.b = ['GoToggleBreakpoint', 'breakpoint']
-            let g:leader_map.m.d.d = ['GoDebug', 'godebug']
-            let g:leader_map.m.d.t = ['GoDebugTest', 'godebug test']
-        endif
         if dein#tap('go')
             let g:leader_map.m.t = ['GoBuildTags', 'build tags']
 

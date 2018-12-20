@@ -1,6 +1,9 @@
 let g:deoplete#enable_at_startup=1
 
-" let g:neoinclude#exts.cpp=['', 'h', 'hpp', 'hh']
+if !exists('g:neoinclude#exts')
+    let g:neoinclude#exts = {}
+endif
+let g:neoinclude#exts.cpp=['', 'h', 'hpp', 'hh']
 
 let g:deoplete#enable_smart_case=0
 let g:deoplete#max_menu_width=80
@@ -10,7 +13,7 @@ let g:deoplete#sources#ternjs#types=1
 let g:deoplete#sources#ternjs#docs=1
 
 let g:deoplete#sources#go#gocode_binary='$GOPATH/bin/gocode'
-let g:deoplete#sources#go#cgo#libclang_path='/usr/lib/libclang.so'
+let g:deoplete#sources#go#cgo#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so'
 let g:deoplete#sources#go#pointer=1
 let g:deoplete#sources#go#cgo=1
 

@@ -4,6 +4,7 @@ let g:lightline = {
             \   'left': [[ 'mode', 'paste' ], [ 'git', 'virtualenv', 'filename' ]],
             \   'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
             \            [ 'percent' ],
+            \            [ 'langserver' ],
             \            [ 'fileformat', 'fileencoding', 'filetype' ]],
             \ },
             \ 'component_function': {
@@ -13,6 +14,7 @@ let g:lightline = {
             \   'fileformat': 'statusline#Fileformat',
             \   'filetype': 'statusline#Filetype',
             \   'fileencoding': 'statusline#Fileencoding',
+            \   'langserver': 'LanguageClient#statusLine',
             \   'mode': 'statusline#Mode',
             \ },
             \ 'component_expand': {

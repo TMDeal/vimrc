@@ -3,3 +3,7 @@ bundle
 .localvimrc_persistent
 .netrwhist
 init.vim
+.slime_paste
+
+*.pyc
+__pycache__

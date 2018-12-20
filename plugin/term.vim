@@ -1,2 +1,4 @@
 " for my sanity
-tnoremap <ESC> <C-\><C-n><C-w><C-p>
+if has('nvim')
+    tnoremap <ESC> <C-\><C-n><C-w><C-p>
+endif

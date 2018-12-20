@@ -39,6 +39,29 @@ repo = 'drmikehenry/vim-headerguard'
 name = 'headerguard'
 on_ft = ['c', 'cpp']
 
+
+####################
+# Rust #############
+####################
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+name = 'webapi'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+name = 'rust'
+depends = 'webapi'
+on_ft = ['rust']
+
+[[plugins]]
+repo = 'racer-rust/vim-racer'
+name = 'racer'
+
+[[plugins]]
+repo = 'ron-rs/ron.vim'
+name = 'ron'
+
 ####################
 # Ruby #############
 ####################
@@ -97,11 +120,6 @@ name = 'go'
 on_cmd = ['GoInstallBinaries', 'GoUpdateBinaries']
 on_ft = ['go', 'gohtmltmpl']
 
-[[plugins]]
-repo = 'jodosha/vim-godebug'
-name = 'godebug'
-on_cmd = ['GoToggleBreakpoint', 'GoDebug', 'GoDebugTest']
-
 ####################
 # Web ##############
 ####################
@@ -157,6 +175,19 @@ name = 'graphql'
 [[plugins]]
 repo = 'othree/javascript-libraries-syntax.vim'
 name = 'javascript-libraries-syntax'
+
+[[plugins]]
+repo = 'octol/vim-cpp-enhanced-highlight'
+name = 'cpp-enhanced-hightlight'
+hook_add = '''
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_experimental_template_highlight = 0
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 0
+'''
 
 [[plugins]]
 repo = 'lepture/vim-jinja'
@@ -340,9 +371,10 @@ on_source = 'deoplete'
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
+build = 'make'
 
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
+# [[plugins]]
+# repo = 'zchee/deoplete-jedi'
 
 # [[plugins]]
 # repo = 'carlitux/deoplete-ternjs'
@@ -350,6 +382,7 @@ repo = 'zchee/deoplete-jedi'
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
+build = './install.sh'
 if = 'executable("tsserver")'
 
 ####################

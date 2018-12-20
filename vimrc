@@ -26,6 +26,8 @@ let g:root_markers=[
             \'manage.py',
             \'package.json',
             \'angular.json',
+            \'Gopkg.toml',
+            \'mix.exs',
             \'.git'
             \]
 

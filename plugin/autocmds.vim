@@ -4,7 +4,7 @@ augroup my_autocmds
     "Lint
     if dein#tap('ale')
         if dein#tap('lightline')
-            au User ALELint call lightline#update()
+            au User ALELintPost call lightline#update()
         endif
     endif
 

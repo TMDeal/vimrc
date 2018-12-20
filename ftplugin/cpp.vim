@@ -24,7 +24,7 @@ augroup my_autocmds
     au BufEnter * if &ft ==# 'cpp' || &ft ==# 'c' | call s:SetLeaderGuideMappings() | endif
 augroup END
 
-let s:flags=clang#Config()
+let s:flags=CompileCommandsParse(projectroot#guess() . "/compile_commands.json")
 
 if dein#tap('neoinclude')
     call dein#source('neoinclude')
