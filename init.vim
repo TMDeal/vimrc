@@ -1,0 +1,1 @@
+/home/trent/my-workspace/configs/vim/vimrc

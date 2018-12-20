@@ -2,7 +2,6 @@ bundle
 .cache
 .localvimrc_persistent
 .netrwhist
-init.vim
 .slime_paste
 
 *.pyc
