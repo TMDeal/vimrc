@@ -23,8 +23,6 @@ if dein#tap('deoplete')
         let g:deoplete#sources#go#json_directory='$EDITOR_ROOT/.cache/deoplete/go/$GOOS_$GOARCH'
     endif
 
-    call deoplete#custom#option('ignore_sources', {'_': ['tag']})
-
     call deoplete#custom#source('_', 'matchers', [
                 \'matcher_full_fuzzy',
                 \'matcher_length'
@@ -37,10 +35,11 @@ if dein#tap('deoplete')
                 \'converter_remove_paren'
                 \])
 
+    call deoplete#custom#option('ignore_sources', {'_': ['tag', 'around']})
+
     call deoplete#custom#option('omni_patterns', {
                 \ 'gohtmltmpl': ['<', '<[^>]*\s[[:alnum:]-]*']
                 \})
-
     inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
     inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
     inoremap <expr><C-g> deoplete#undo_completion()
