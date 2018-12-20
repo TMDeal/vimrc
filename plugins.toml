@@ -225,10 +225,10 @@ let g:localvimrc_persistent=2
 let g:localvimrc_persistence_file=$EDITOR_ROOT . "/.localvimrc_persistent"
 '''
 
-# [[plugins]]
-# repo = 'ludovicchabant/vim-gutentags'
-# name = 'gutentags'
-# if = 'executable("ctags")'
+[[plugins]]
+repo = 'ludovicchabant/vim-gutentags'
+name = 'gutentags'
+if = 'executable("ctags")'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
@@ -298,7 +298,6 @@ name = 'endwise'
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
-on_ft = ['neosnippet']
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -341,12 +340,8 @@ name = 'context-filetype'
 repo = 'zchee/deoplete-go'
 build = 'make'
 
-# [[plugins]]
-# repo = 'zchee/deoplete-jedi'
-
-# [[plugins]]
-# repo = 'carlitux/deoplete-ternjs'
-# if = 'executable("tern")'
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
