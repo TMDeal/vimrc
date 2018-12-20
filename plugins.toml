@@ -289,13 +289,6 @@ let g:neoformat_only_msg_on_error = 1
 # Completion #######
 ####################
 
-# [[plugins]]
-# repo = 'Raimondi/delimitMate'
-# on_event = 'InsertEnter'
-# hook_source = '''
-# source $EDITOR_ROOT/config/delimitMate.vim
-# '''
-
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
 
@@ -306,10 +299,6 @@ name = 'endwise'
 [[plugins]]
 repo = 'Shougo/neosnippet'
 on_ft = ['neosnippet']
-on_event = 'InsertEnter'
-hook_source = '''
-source $EDITOR_ROOT/config/neosnippet.vim
-'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -343,15 +332,10 @@ let g:echodoc#enable_at_startup=1
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 name = 'deoplete'
-on_event = 'InsertEnter'
-hook_source = '''
-source $EDITOR_ROOT/config/deoplete.vim
-'''
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 name = 'context-filetype'
-on_source = 'deoplete'
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
