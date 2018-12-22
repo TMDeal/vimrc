@@ -1,0 +1,123 @@
+snippet     e=
+abbr        <%= ... %>
+options     word
+    <%= ${0:TARGET} %>
+
+snippet     e-
+abbr        <%- ... %>
+options     word
+    <%- ${0:TARGET} %>
+
+snippet     e#
+abbr        <%# ... %>
+options     word
+    <%# ${0:TARGET} %>
+
+snippet     end
+abbr        <% end %>
+options     word
+    <% end %>
+
+snippet     for
+abbr        eex for
+options     head
+    <% for ${1:item} <- @$1s do %>
+        ${0:TARGET}
+    <% end %>
+
+snippet     if
+abbr        eex if
+options     head
+    <% if ${1:condition} do %>
+        ${0:TARGET}
+    <% end %>
+
+snippet     iif
+abbr        eex inline if
+options     word
+    <% if ${1:condition} do %> ${0:TARGET} <% end %>
+
+snippet     ife
+abbr        eex if else
+options     head
+    <% if ${1:condition} do %>
+        ${2}
+    <% else %>
+        ${3}
+    <% end %>
+
+snippet     iife
+abbr        eex inline if else
+options     word
+    <% if ${1:condition} do %> ${2} <% else %> ${3} <% end %>
+
+snippet     else
+abbr        eex else
+options     head
+    <% else %>
+
+snippet     cond
+abbr        eex cond
+options     head
+    <%= cond do %>
+        <% ${1} -> %>
+            ${2}
+        <% true -> %>
+            ${3}
+    <% end %>
+
+snippet     unless
+abbr        eex unless
+options     head
+    <% unless ${1:condition} do %>
+        ${0:TARGET}
+    <% end %>
+
+snippet     ff
+abbr        eex form_for
+options     head
+    <%= form_for @${1:changeset}, ${2:url}, ${3:[]}, fn f -> %>
+        ${0:TARGET}
+    <% end %>
+
+snippet     fet
+abbr        eex form error tag
+options     head
+    <%= error_tag ${1:f}, :${2:field} %>
+
+snippet     fti
+abbr        eex form text input
+options     head
+    <%= text_input ${1:f}, :${2:field} %>
+
+snippet     fla
+abbr        eex form label
+options     head
+    <%= label ${1:f}, :${2:field}, "${3:text}" %>
+
+snippet     fsub
+abbr        eex form submit
+options     head
+    <% submit ${1:text} %>
+
+snippet     fpi
+abbr        eex form password input
+options     head
+    <%= password_input ${1:f}, :${2:field} %>
+
+snippet     fif
+abbr        eex form inputs_for
+options     head
+    <%= inputs_for ${1:f}, :${2:field}, fn cf -> %>
+        ${0:TARGET}
+    <% end %>
+
+snippet     link
+abbr        eex link
+options     head
+    <%= link "${1:text}", to: ${2:url} %>
+
+snippet     render
+abbr        eex render
+options     head
+    <%= render "${1:partial}", ${2:vars}%>
