@@ -4,6 +4,7 @@ if dein#tap('lsp')
     let g:LanguageClient_diagnosticsEnable=0
     let g:LanguageClient_diagnosticsList='location'
     let g:LanguageClient_windowLogMessageLevel='Error'
+    let g:LanguageClient_hasSnippetSupport=0
     let g:LanguageClient_serverCommands={}
 
     " if executable('javascript-typescript-stdio')
