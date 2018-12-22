@@ -215,6 +215,10 @@ let g:vim_json_syntax_conceal=0
 ####################
 
 [[plugins]]
+repo = 'tpope/vim-projectionist'
+name = 'projectionist'
+
+[[plugins]]
 repo = 'embear/vim-localvimrc'
 name = 'localvimrc'
 on_cmd = ['LocalVimRC', 'LocalVimRCClear']
