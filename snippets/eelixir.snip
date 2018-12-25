@@ -21,26 +21,26 @@ options     word
 snippet     for
 abbr        eex for
 options     head
-    <% for ${1:item} <- @$1s do %>
+    <%= for ${1:item} <- @$1s do %>
         ${0:TARGET}
     <% end %>
 
 snippet     if
 abbr        eex if
 options     head
-    <% if ${1:condition} do %>
+    <%= if ${1:condition} do %>
         ${0:TARGET}
     <% end %>
 
 snippet     iif
 abbr        eex inline if
 options     word
-    <% if ${1:condition} do %> ${0:TARGET} <% end %>
+    <%= if ${1:condition} do %> ${0:TARGET} <% end %>
 
 snippet     ife
 abbr        eex if else
 options     head
-    <% if ${1:condition} do %>
+    <%= if ${1:condition} do %>
         ${2}
     <% else %>
         ${3}
@@ -49,7 +49,7 @@ options     head
 snippet     iife
 abbr        eex inline if else
 options     word
-    <% if ${1:condition} do %> ${2} <% else %> ${3} <% end %>
+    <%= if ${1:condition} do %> ${2} <% else %> ${3} <% end %>
 
 snippet     else
 abbr        eex else
@@ -69,7 +69,7 @@ options     head
 snippet     unless
 abbr        eex unless
 options     head
-    <% unless ${1:condition} do %>
+    <%= unless ${1:condition} do %>
         ${0:TARGET}
     <% end %>
 
@@ -98,7 +98,7 @@ options     head
 snippet     fsub
 abbr        eex form submit
 options     head
-    <% submit ${1:text} %>
+    <%= submit ${1:text} %>
 
 snippet     fpi
 abbr        eex form password input
