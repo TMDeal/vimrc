@@ -25,6 +25,7 @@ function! s:SetLeaderGuideMappings()
             let g:leader_map.m.i.p = ['GoChannelPeers', 'channel peers']
             let g:leader_map.m.i.r = ['GoReferrers', 'show referrers']
             let g:leader_map.m.i.s = ['GoSameIdsToggle', 'toggle show same ids']
+
             if dein#tap('fzf')
                 let g:leader_map.m.i.L = ['GoDecls', 'show declarations in file']
                 let g:leader_map.m.i.l = ['GoDeclsDir', 'show declarations in dir']

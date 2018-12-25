@@ -21,9 +21,6 @@ function! s:SetLeaderGuideMappings()
             let g:leader_map.m.i = ['TSImport', 'import under cursor']
             let g:leader_map.m.e = ['TSEditConfig', 'edit config']
         endif
-        if dein#tap('lsp') && has_key(g:LanguageClient_serverCommands, 'typescript') == 1
-            call leader#SetupLSP()
-        endif
     endif
 endfunction
 

@@ -298,25 +298,6 @@ let g:neoformat_only_msg_on_error = 1
 repo = 'godlygeek/tabular'
 on_cmd = ['Tabularize']
 
-########################
-# LanguageClient #######
-########################
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-if = 'has("nvim")'
-name = 'lsp'
-rev = 'next'
-build = 'bash install.sh'
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-if = '!has("nvim")'
-
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-if = '!has("nvim")'
-
 ####################
 # Completion #######
 ####################

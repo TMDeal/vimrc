@@ -16,9 +16,6 @@ function! s:SetLeaderGuideMappings()
             let g:leader_map.m.t.R = ['TernRefs', 'show references']
             let g:leader_map.m.t.r = ['TernRename', 'rename']
         endif
-        if dein#tap('lsp') && has_key(g:LanguageClient_serverCommands, 'javascript') == 1
-            call leader#SetupLSP()
-        endif
     endif
 endfunction
 

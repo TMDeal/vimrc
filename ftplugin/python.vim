@@ -47,9 +47,6 @@ function! s:SetLeaderGuideMappings()
         if dein#tap('impsort')
             let g:leader_map.m.I = ['ImpSort!', 'sort imports']
         endif
-        if dein#tap('lsp') && has_key(g:LanguageClient_serverCommands, 'python') == 1
-            call leader#SetupLSP()
-        endif
     endif
 endfunction
 
