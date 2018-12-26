@@ -209,6 +209,13 @@ let g:javascript_plugin_ngdoc=1
 let g:javascript_plugin_flow=1
 '''
 
+[[plugins]]
+repo = 'elzr/vim-json'
+name = 'json'
+hook_add = '''
+let g:vim_json_syntax_conceal=0
+'''
+
 ######################
 # typescript #########
 ######################
@@ -231,19 +238,12 @@ build = './install.sh'
 if = 'executable("tsserver")'
 
 ####################
-# Filetype #########
+# TOML #############
 ####################
 
 [[plugins]]
 repo = 'cespare/vim-toml'
 name = 'toml'
-
-[[plugins]]
-repo = 'elzr/vim-json'
-name = 'json'
-hook_add = '''
-let g:vim_json_syntax_conceal=0
-'''
 
 ####################
 # Project ##########
