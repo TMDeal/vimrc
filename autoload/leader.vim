@@ -12,7 +12,6 @@ function! leader#Init()
     let g:leader_map     = {}
 
     let g:leader_map.f   = {'name': '[fzf]'}
-    let g:leader_map.o   = {'name': '[open]'}
     let g:leader_map.g   = {'name': '[git]'}
     let g:leader_map.w   = {'name': '[window]'}
     let g:leader_map.T   = {'name': '[tabs]'}

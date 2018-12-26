@@ -370,11 +370,6 @@ name = 'context-filetype'
 ####################
 
 [[plugins]]
-repo = 'Valloric/ListToggle'
-name = 'list-toggle'
-on_cmd = ['LToggle', 'QToggle']
-
-[[plugins]]
 repo = 'Konfekt/FastFold'
 name = 'fast-fold'
 

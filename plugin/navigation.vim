@@ -56,9 +56,3 @@ if dein#tap('fzf')
                 \ -g "!{.git,.cache,node_modules,bundle,build,pkg,vendor,third_party,bin,dist,target,_build,deps}/*" '
     command! -bang -nargs=* FzfRipgrep call fzf#vim#grep(g:rg_command_grep .shellescape(<q-args>), 1, <bang>0)
 endif
-
-if dein#tap('list-toggle')
-    let g:lt_height=5
-    let g:lt_location_list_toggle_map = '<leader>ol'
-    let g:lt_quickfix_list_toggle_map = '<leader>oq'
-endif
