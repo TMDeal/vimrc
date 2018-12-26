@@ -10,8 +10,8 @@ if dein#tap('deoplete')
     let g:deoplete#max_menu_width=80
     let g:deoplete#file#enable_buffer_path=1
 
-    let g:deoplete#sources#ternjs#types=1
-    let g:deoplete#sources#ternjs#docs=1
+    let g:deoplete#sources#clang#libclang_path=""
+    let g:deoplete#sources#clang#clang_header=""
 
     let g:deoplete#sources#go#gocode_binary='$GOPATH/bin/gocode'
     let g:deoplete#sources#go#cgo#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so'

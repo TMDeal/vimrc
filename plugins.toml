@@ -40,6 +40,10 @@ name = 'headerguard'
 on_ft = ['c', 'cpp']
 
 [[plugins]]
+repo = 'zchee/deoplete-clang'
+on_ft = ['c', 'cpp']
+
+[[plugins]]
 repo = 'octol/vim-cpp-enhanced-highlight'
 name = 'cpp-enhanced-hightlight'
 on_ft = ['c', 'cpp']
@@ -261,6 +265,18 @@ let g:localvimrc_persistent=2
 let g:localvimrc_persistence_file=$EDITOR_ROOT . "/.localvimrc_persistent"
 '''
 
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+name = 'editorconfig'
+on_if = 'filereadable(expand(projectroot#guess() . "/.editorconfig"))'
+hook_add = '''
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+'''
+
+####################
+# Tags #############
+####################
+
 # [[plugins]]
 # repo = 'ludovicchabant/vim-gutentags'
 # name = 'gutentags'
@@ -271,22 +287,39 @@ repo = 'majutsushi/tagbar'
 if = 'executable("ctags")'
 on_cmd = ['TagbarToggle']
 
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --bin'
-merged = 0
+
+#######################
+# navigation ##########
+#######################
+
+# [[plugins]]
+# repo = 'junegunn/fzf'
+# build = './install --bin'
+# merged = 0
+#
+# [[plugins]]
+# repo = 'junegunn/fzf.vim'
+# depends = 'fzf'
 
 [[plugins]]
-repo = 'junegunn/fzf.vim'
-depends = 'fzf'
+repo = 'ctrlpvim/ctrlp.vim'
+name = 'ctrlp'
+on_cmd = ['CtrlP', 'CtrlpBuffer', 'CtrlPMRU', 'CtrlPMixed']
 
 [[plugins]]
-repo = 'editorconfig/editorconfig-vim'
-name = 'editorconfig'
-on_if = 'filereadable(expand(projectroot#guess() . "/.editorconfig"))'
-hook_add = '''
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-'''
+repo = 'scrooloose/nerdtree'
+on_cmd = ['NERDTreeToggle', 'NERDTreeFind']
+augroup = "FileExplorer"
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+name = 'nerdtree-git'
+on_source = 'nerdtree'
+depends = 'nerdtree'
+
+[[plugins]]
+repo = 'mbbill/undotree'
+on_cmd = ['UndotreeToggle']
 
 ###############
 # Git #########
@@ -423,25 +456,6 @@ name = 'jellybeans'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 name = 'lightline'
-
-####################
-# Trees ############
-####################
-
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-on_cmd = ['NERDTreeToggle', 'NERDTreeFind']
-augroup = "FileExplorer"
-
-[[plugins]]
-repo = 'Xuyuanp/nerdtree-git-plugin'
-name = 'nerdtree-git'
-on_source = 'nerdtree'
-depends = 'nerdtree'
-
-[[plugins]]
-repo = 'mbbill/undotree'
-on_cmd = ['UndotreeToggle']
 
 ####################
 # Extra ############
