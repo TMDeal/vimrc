@@ -97,26 +97,6 @@ options     head
 		${2::TARGET}
 	redir END
 
-snippet NeoBundle
-alias   neobundle
-abbr NeoBundle ''
-    NeoBundle '`getreg('+')=='' ? '<\`0\`>' : getreg('+')`'${0}
-
-snippet NeoBundleLazy
-alias   neobundlelazy
-abbr NeoBundleLazy ''
-    NeoBundleLazy '`getreg('+')=='' ? '<\`0\`>' : getreg('+')`', {
-      \ ${0}
-      \ }
-
-snippet bundle_hooks
-abbr neobundle hooks
-    let s:hooks = neobundle#get_hooks('${1}')
-    function! s:hooks.on_source(bundle) abort
-      ${0}
-    endfunction
-    unlet s:hooks
-
 snippet     autoload
 abbr        autoload func endfunc
 alias       afunction afunc
