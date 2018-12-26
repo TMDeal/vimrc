@@ -1,7 +1,7 @@
 let g:lightline = {
             \ 'colorscheme': 'jellybeans',
             \ 'active': {
-            \   'left': [[ 'mode', 'paste' ], [ 'git', 'virtualenv', 'filename' ]],
+            \   'left': [[ 'mode', 'paste' ], [ 'git', 'virtualenv', 'filename' ], ['ctrlpmark']],
             \   'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
             \            [ 'percent' ],
             \            [ 'langserver' ],
@@ -16,6 +16,7 @@ let g:lightline = {
             \   'fileencoding': 'statusline#Fileencoding',
             \   'langserver': 'LanguageClient#statusLine',
             \   'mode': 'statusline#Mode',
+            \   'ctrlpmark': 'statusline#CtrlPMark',
             \ },
             \ 'component_expand': {
             \  'linter_checking': 'statusline#checking',
@@ -33,3 +34,7 @@ let g:lightline = {
             \ }
 
 let g:tagbar_status_func = 'statusline#TagbarStatusFunc'
+let g:ctrlp_status_func = {
+            \ 'main': 'statusline#CtrlPStatusFunc_1',
+            \ 'prog': 'statusline#CtrlPStatusFunc_2',
+            \ }
