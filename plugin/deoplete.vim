@@ -12,6 +12,7 @@ if dein#tap('deoplete')
 
     let g:deoplete#sources#clang#libclang_path="/usr/lib/llvm-3.8/lib/libclang.so"
     let g:deoplete#sources#clang#clang_header="/usr/lib/llvm-3.8/lib/clang/3.8.1/include/"
+    let g:deoplete#sources#clang#clang_complete_database="./build"
 
     let g:deoplete#sources#go#gocode_binary='$GOPATH/bin/gocode'
     let g:deoplete#sources#go#cgo#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so'
