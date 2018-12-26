@@ -1,58 +1,33 @@
-let s:indicator_warnings = get(g:, 'ale_sign_warning', 'W:')
-let s:indicator_errors = get(g:, 'ale_sign_errors', 'E:')
-let s:indicator_ok = 'OK'
-let s:indicator_checking = 'Linting...'
+let s:indicator_warnings='⚠'
+let s:indicator_errors='✖'
+let s:indicator_ok='OK'
+
+function! statusline#NeomakeOK() abort
+    if !exists(":Neomake")
+        return ''
+    endif
+    let list = neomake#statusline#LoclistCounts()
+    return list == {} ? s:indicator_ok : ''
+endfunction
+
+function! statusline#NeomakeWarnings() abort
+    if !exists(":Neomake")
+        return ''
+    endif
+    let lwarns = neomake#statusline#LoclistCounts()['W']
+    return lwarns == 0 ? '' : printf(s:indicator_warnings . ' %d', lwarns)
+endfunction
+
+function! statusline#NeomakeErrors() abort
+    if !exists(":Neomake")
+        return ''
+    endif
+    let lerrors = neomake#statusline#LoclistCounts()['E']
+    return lerrors == 0 ? '' : printf(s:indicator_errors . ' %d', lerrors)
+endfunction
 
 function! statusline#Modified()
     return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! statusline#warnings() abort
-  if !statusline#linted()
-    return ''
-  endif
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:all_non_errors == 0 ? '' : printf(g:ale_sign_warning . ' %d', all_non_errors)
-endfunction
-
-function! statusline#errors() abort
-  if !statusline#linted()
-    return ''
-  endif
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  return l:all_errors == 0 ? '' : printf(g:ale_sign_error . ' %d', all_errors)
-endfunction
-
-function! statusline#ok() abort
-  if !statusline#linted()
-    return ''
-  endif
-  let l:counts = ale#statusline#Count(bufnr(''))
-  return l:counts.total == 0 ? s:indicator_ok : ''
-endfunction
-
-function! statusline#checking() abort
-  return ale#engine#IsCheckingBuffer(bufnr('')) ? s:indicator_checking : ''
-endfunction
-
-function! statusline#linted() abort
-  return getbufvar(bufnr(''), 'ale_linted', 0) > 0 && !ale#engine#IsCheckingBuffer(bufnr(''))
-endfunction
-
-function! statusline#Lint() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%d⚠ %d✖ ',
-    \   all_non_errors,
-    \   all_errors
-    \)
 endfunction
 
 function! statusline#Readonly()

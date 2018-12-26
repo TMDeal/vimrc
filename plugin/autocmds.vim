@@ -2,14 +2,14 @@ augroup my_autocmds
     au!
 
     "Lint
-    if dein#tap('ale')
+    if dein#tap('neomake')
+        au BufWinEnter * Neomake
+        au BufWritePost * Neomake
+
         if dein#tap('lightline')
-            au User ALELintPost call lightline#update()
+            au User NeomakeFinished nested call lightline#update()
         endif
     endif
-
-    "format files on save
-    " au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | endtry
 
     autocmd VimEnter * silent! autocmd! FileExplorer
     au BufNew,BufEnter,VimEnter * if isdirectory(expand("<amatch>")) | call dein#source("nerdtree") | endif

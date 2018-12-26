@@ -2,7 +2,7 @@ let g:lightline = {
             \ 'colorscheme': 'jellybeans',
             \ 'active': {
             \   'left': [[ 'mode', 'paste' ], [ 'git', 'virtualenv', 'filename' ], ['ctrlpmark']],
-            \   'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+            \   'right': [[ 'neomake_warnings', 'neomake_errors', 'neomake_ok' ],
             \            [ 'percent' ],
             \            [ 'langserver' ],
             \            [ 'fileformat', 'fileencoding', 'filetype' ]],
@@ -19,16 +19,14 @@ let g:lightline = {
             \   'ctrlpmark': 'statusline#CtrlPMark',
             \ },
             \ 'component_expand': {
-            \  'linter_checking': 'statusline#checking',
-            \  'linter_warnings': 'statusline#warnings',
-            \  'linter_errors': 'statusline#errors',
-            \  'linter_ok': 'statusline#ok',
+            \   'neomake_warnings': 'statusline#NeomakeWarnings',
+            \   'neomake_errors': 'statusline#NeomakeErrors',
+            \   'neomake_ok': 'statusline#NeomakeOK',
             \ },
             \ 'component_type': {
-            \  'linter_checking': 'left',
-            \  'linter_warnings': 'warning',
-            \  'linter_errors': 'error',
-            \  'linter_ok': 'left',
+            \   'neomake_warnings': 'warning',
+            \   'neomake_errors': 'error',
+            \   'neomake_ok': 'left',
             \ },
             \ 'subseparator': { 'left': '|', 'right': '|' }
             \ }
