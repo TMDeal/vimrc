@@ -42,6 +42,7 @@ on_ft = ['c', 'cpp']
 [[plugins]]
 repo = 'octol/vim-cpp-enhanced-highlight'
 name = 'cpp-enhanced-hightlight'
+on_ft = ['c', 'cpp']
 hook_add = '''
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
@@ -59,10 +60,12 @@ let g:cpp_no_function_highlight = 0
 [[plugins]]
 repo = 'elixir-editors/vim-elixir'
 name = 'elixir'
+on_ft = ['elixir', 'eelixir']
 
 [[plugins]]
 repo = 'slashmili/alchemist.vim'
 name = 'alchemist'
+on_ft = ['elixir']
 
 ####################
 # Python ###########
@@ -101,8 +104,14 @@ name = 'impsort'
 on_ft = ['python']
 
 [[plugins]]
+repo = 'zchee/deoplete-jedi'
+if = 'has("nvim")'
+on_ft = ['python']
+
+[[plugins]]
 repo = 'lepture/vim-jinja'
 name = 'jinja'
+on_ft = ['jinja']
 
 ####################
 # Go ###############
@@ -114,8 +123,14 @@ name = 'go'
 on_cmd = ['GoInstallBinaries', 'GoUpdateBinaries']
 on_ft = ['go', 'gohtmltmpl']
 
+[[plugins]]
+repo = 'zchee/deoplete-go'
+build = 'make'
+if = 'has("nvim")'
+on_ft = ['go']
+
 #########################
-# Markdown ##############
+# html ##################
 #########################
 
 [[plugins]]
@@ -133,12 +148,9 @@ let g:closetag_close_shortcut='<C-x>.'
 '''
 
 [[plugins]]
-repo = 'tpope/vim-ragtag'
-name = 'ragtag'
-
-[[plugins]]
 repo = 'othree/html5.vim'
 name = 'html5'
+on_ft = ['html']
 
 #####################
 # css ###############
@@ -147,9 +159,10 @@ name = 'html5'
 [[plugins]]
 repo = 'cakebaker/scss-syntax.vim'
 name = 'scss'
+on_ft = ['scss']
 
 #######################
-# js/ts ###############
+# javascript ###############
 #######################
 
 [[plugins]]
@@ -168,11 +181,11 @@ name = 'jsdoc'
 on_cmd = ['JsDoc']
 
 [[plugins]]
-repo = 'bdauria/angular-cli.vim'
-name = 'angular-cli'
-hook_add = '''
-let g:angular_cli_stylesheet_format="scss"
-'''
+repo = 'ternjs/tern_for_vim'
+name = 'ternjs'
+if = 'executable("tern")'
+on_ft = ['javascript', 'javascript.jsx']
+build = 'npm install'
 
 [[plugins]]
 repo = 'jparise/vim-graphql'
@@ -181,10 +194,7 @@ name = 'graphql'
 [[plugins]]
 repo = 'othree/javascript-libraries-syntax.vim'
 name = 'javascript-libraries-syntax'
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-name = 'typescript'
+on_ft = ['javascript', 'javascript.jsx']
 
 [[plugins]]
 repo = 'pangloss/vim-javascript'
@@ -194,6 +204,27 @@ let g:javascript_plugin_jsdoc=1
 let g:javascript_plugin_ngdoc=1
 let g:javascript_plugin_flow=1
 '''
+
+######################
+# typescript #########
+######################
+
+[[plugins]]
+repo = 'bdauria/angular-cli.vim'
+name = 'angular-cli'
+hook_add = '''
+let g:angular_cli_stylesheet_format="scss"
+'''
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+name = 'typescript'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'mhartington/nvim-typescript'
+build = './install.sh'
+if = 'executable("tsserver")'
 
 ####################
 # Filetype #########
@@ -242,7 +273,7 @@ on_cmd = ['TagbarToggle']
 
 [[plugins]]
 repo = 'junegunn/fzf'
-build = './install --all'
+build = './install --bin'
 merged = 0
 
 [[plugins]]
@@ -316,6 +347,10 @@ repo = 'Shougo/neosnippet'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
+repo = 'Shougo/deoplete.nvim'
+name = 'deoplete'
+
+[[plugins]]
 repo = 'Shougo/neoinclude.vim'
 name = 'neoinclude'
 
@@ -327,33 +362,12 @@ let g:echodoc#enable_at_startup=1
 '''
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-name = 'deoplete'
-
-[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 name = 'context-filetype'
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-build = 'make'
-
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-
-[[plugins]]
-repo = 'mhartington/nvim-typescript'
-build = './install.sh'
-if = 'executable("tsserver")'
 
 ####################
 # Vim Extensions ###
 ####################
-
-[[plugins]]
-repo = 'tpope/vim-eunuch'
-name = 'eunuch'
-on_cmd = ['Remove', 'Unlink', 'Move', 'Rename', 'Chmod', 'Mkdir', 'Find', 'Locate', 'Wall', 'SudoWrite', 'SudoEdit']
 
 [[plugins]]
 repo = 'Valloric/ListToggle'
