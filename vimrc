@@ -10,13 +10,26 @@ if !exists('g:leader_map')
     call leader#Init()
 endif
 
-if has('nvim')
-    let $EDITOR_ROOT=expand('$HOME/.config/nvim')
+if has('win32') || has('win64')
+    let $SEP='\\'
 else
-    let $EDITOR_ROOT=expand('$HOME/.vim')
+    let $SEP='/'
 endif
 
-set runtimepath+=$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim
+if has('nvim')
+    if has('win32') || has('win64')
+        let $EDITOR_ROOT=expand('$LOCALAPPDATA'.$SEP.'nvim')
+    else
+        let $EDITOR_ROOT=expand('$HOME'.$SEP.'.config'.$SEP.'nvim')
+    endif
+else
+    let $EDITOR_ROOT=expand('$HOME'.$SEP.'.vim')
+endif
+
+let $BUNDLE_DIR=expand('$EDITOR_ROOT'.$SEP.'bundle')
+let $DEIN_DIR=expand('$BUNDLE_DIR'.$SEP.'repos'.$SEP.'github.com'.$SEP.'Shougo'.$SEP.'dein.vim')
+
+set runtimepath+=$DEIN_DIR
 
 let g:root_markers=[
             \'.projectroot',
@@ -32,19 +45,19 @@ let g:root_markers=[
             \]
 
 if !isdirectory(expand('$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim'))
-    !curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | bash -s -- $EDITOR_ROOT/bundle
+    !curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | bash -s -- $BUNDLE_DIR
 endif
 
-for s:dir in ['.cache/tags', '.cache/backup', '.cache/undo', '.cache/swap']
-    if !isdirectory(expand($EDITOR_ROOT . '/' . s:dir))
-        call mkdir(expand($EDITOR_ROOT . '/' . s:dir), 'p')
+for s:dir in ['tags', 'backup', 'undo', 'swap']
+    if !isdirectory(expand('$EDITOR_ROOT'.$SEP.'.cache'.$SEP.s:dir))
+        call mkdir(expand('$EDITOR_ROOT'.$SEP.'.cache'.$SEP.s:dir), 'p')
     endif
 endfor
 
-if dein#load_state(expand('$EDITOR_ROOT/bundle'))
-    call dein#begin(expand('$EDITOR_ROOT/bundle'))
+if dein#load_state($BUNDLE_DIR)
+    call dein#begin($BUNDLE_DIR)
 
-    call dein#load_toml('$EDITOR_ROOT/plugins.toml')
+    call dein#load_toml('$EDITOR_ROOT'.$SEP.'plugins.toml')
 
     call dein#end()
     call dein#save_state()
