@@ -127,6 +127,6 @@ if dein#tap('python-mode')
 endif
 
 if dein#tap('pydocstring')
-    let g:pydocstring_templates_dir=$EDITOR_ROOT . '/templates/'
+    let g:pydocstring_templates_dir=$EDITOR_ROOT . $SEP . 'templates'
     let g:pydocstring_enable_mapping=0
 endif

@@ -1,7 +1,7 @@
 function! s:find_root() abort
     let root = projectroot#guess()
-    let mix = root . "/mix.exs"
-    let web = glob(root . "/lib/*_web")
+    let mix = root . $SEP . "mix.exs"
+    let web = glob(root . $SEP . "lib" . $SEP . "*_web")
 
     if filereadable(mix) && isdirectory(web)
         return root

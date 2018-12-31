@@ -19,11 +19,6 @@ if dein#tap('deoplete')
     let g:deoplete#sources#go#pointer=1
     let g:deoplete#sources#go#cgo=1
 
-    if isdirectory(expand('$EDITOR_ROOT/.cache/deoplete/go/$GOOS_$GOARCH'))
-        let g:deoplete#sources#go#use_cache=1
-        let g:deoplete#sources#go#json_directory='$EDITOR_ROOT/.cache/deoplete/go/$GOOS_$GOARCH'
-    endif
-
     call deoplete#custom#source('_', 'matchers', [
                 \'matcher_full_fuzzy',
                 \'matcher_length'

@@ -28,6 +28,7 @@ endif
 
 let $BUNDLE_DIR=expand('$EDITOR_ROOT'.$SEP.'bundle')
 let $DEIN_DIR=expand('$BUNDLE_DIR'.$SEP.'repos'.$SEP.'github.com'.$SEP.'Shougo'.$SEP.'dein.vim')
+let $CACHE_DIR=expand('$EDITOR_ROOT'.$SEP.'.cache')
 
 set runtimepath+=$DEIN_DIR
 
@@ -49,8 +50,8 @@ if !isdirectory(expand('$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim'))
 endif
 
 for s:dir in ['tags', 'backup', 'undo', 'swap']
-    if !isdirectory(expand('$EDITOR_ROOT'.$SEP.'.cache'.$SEP.s:dir))
-        call mkdir(expand('$EDITOR_ROOT'.$SEP.'.cache'.$SEP.s:dir), 'p')
+    if !isdirectory(expand('$CACHE_DIR'.$SEP.s:dir))
+        call mkdir(expand('$CACHE_DIR'.$SEP.s:dir), 'p')
     endif
 endfor
 
