@@ -11,7 +11,7 @@ if !exists('g:leader_map')
 endif
 
 if has('win32') || has('win64')
-    let $SEP='\'
+    let $SEP='\\'
 else
     let $SEP='/'
 endif
