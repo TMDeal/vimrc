@@ -6,3 +6,5 @@ bundle
 
 *.pyc
 __pycache__
+
+init.vim
