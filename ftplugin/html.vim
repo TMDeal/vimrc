@@ -1,5 +1,5 @@
 augroup my_autocmds
-    autocmd VimEnter * if exists(projectroot#guess() . $SEP . 'angular.json') != '' | call angular_cli#init() | endif
+    autocmd VimEnter * if exists(projectroot#guess() . '/angular.json') != '' | call angular_cli#init() | endif
 augroup END
 
 setlocal shiftwidth=2

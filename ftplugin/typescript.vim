@@ -26,7 +26,7 @@ endfunction
 
 augroup my_autocmds
     au BufEnter * if &ft ==# 'typescript' | call s:SetLeaderGuideMappings() | endif
-    autocmd VimEnter * if exists(projectroot#guess() . $SEP . 'angular.json') != '' | call angular_cli#init() | endif
+    autocmd VimEnter * if exists(projectroot#guess() . '/angular.json') != '' | call angular_cli#init() | endif
     " au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | endtry
 augroup END
 
