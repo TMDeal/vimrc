@@ -1,31 +1,3 @@
-let s:indicator_warnings='⚠'
-let s:indicator_errors='✖'
-let s:indicator_ok='OK'
-
-function! statusline#NeomakeOK() abort
-    if !exists(":Neomake")
-        return ''
-    endif
-    let list = neomake#statusline#LoclistCounts()
-    return list == {} ? s:indicator_ok : ''
-endfunction
-
-function! statusline#NeomakeWarnings() abort
-    if !exists(":Neomake")
-        return ''
-    endif
-    let lwarns = neomake#statusline#LoclistCounts()['W']
-    return lwarns == 0 ? '' : printf(s:indicator_warnings . ' %d', lwarns)
-endfunction
-
-function! statusline#NeomakeErrors() abort
-    if !exists(":Neomake")
-        return ''
-    endif
-    let lerrors = neomake#statusline#LoclistCounts()['E']
-    return lerrors == 0 ? '' : printf(s:indicator_errors . ' %d', lerrors)
-endfunction
-
 function! statusline#Modified()
     return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction

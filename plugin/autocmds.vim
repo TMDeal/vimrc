@@ -1,14 +1,9 @@
 augroup my_autocmds
     au!
 
-    "Lint
     if dein#tap('neomake')
         au BufWinEnter * Neomake
         au BufWritePost * Neomake
-
-        if dein#tap('lightline')
-            au User NeomakeFinished nested call lightline#update()
-        endif
     endif
 
     autocmd VimEnter * silent! autocmd! FileExplorer
@@ -28,5 +23,4 @@ augroup my_autocmds
     if dein#tap('leader-guide')
         au BufLeave * if &ft != 'LeaderGuide' | call leader#ClearMode() | endif
     endif
-
 augroup END
