@@ -58,7 +58,7 @@ let g:cpp_no_function_highlight = 0
 '''
 
 ######################
-# Elixer #############
+# Elixir #############
 ######################
 
 [[plugins]]
@@ -170,6 +170,10 @@ on_ft = ['scss']
 #######################
 
 [[plugins]]
+repo = 'jaawerth/nrun.vim'
+name = 'nrun'
+
+[[plugins]]
 repo = 'dunckr/js_alternate.vim'
 name = 'js-alternate'
 on_func = ['js_alternate#run']
@@ -235,7 +239,7 @@ on_ft = ['typescript']
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
 build = './install.sh'
-if = 'executable("tsserver")'
+on_ft = ['typescript', 'javascript', 'javascript.jsx']
 
 ####################
 # TOML #############
@@ -344,14 +348,11 @@ let g:gitgutter_map_keys=0
 # Checkers #########
 ####################
 
-# [[plugins]]
-# repo = 'w0rp/ale'
-
 [[plugins]]
 repo = 'neomake/neomake'
 
-# [[plugins]]
-# repo = 'sinetoami/lightline-neomake'
+[[plugins]]
+repo = 'sinetoami/lightline-neomake'
 
 ####################
 # Format ###########
