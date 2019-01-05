@@ -6,7 +6,7 @@ if dein#tap('nerdtree')
     let g:NERDTreeWinPos="left"
     let g:NERDTreeMinimalUI=1
     let g:NERDTreeAutoDeleteBuffer=1
-    let g:NERDTreeIgnore=['_build', 'deps']
+    let g:NERDTreeIgnore=['_build', 'deps', 'node_modules']
     let g:NERDTreeIndicatorMapCustom = {
                 \ 'Modified':  '·',
                 \ 'Staged':    '‧',
