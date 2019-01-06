@@ -25,6 +25,12 @@ augroup my_autocmds
     " au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | endtry
 augroup END
 
+if dein#tap('neomake')
+    if dein#tap('nrun')
+        let b:neomake_javascript_eslint_exe=nrun#Which('eslint')
+    endif
+endif
+
 let g:nvim_typescript#javascript_support=1
 TSStart
 
