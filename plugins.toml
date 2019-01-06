@@ -16,9 +16,9 @@ hook_add = '''
 let g:rootmarkers=g:root_markers
 '''
 
-[[plugins]]
-repo = 'EinfachToll/DidYouMean'
-name = 'did-you-mean'
+# [[plugins]]
+# repo = 'EinfachToll/DidYouMean'
+# name = 'did-you-mean'
 
 ####################
 # C/C++ ############
@@ -296,6 +296,10 @@ on_cmd = ['TagbarToggle']
 # navigation ##########
 #######################
 
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+name = 'denite'
+
 # [[plugins]]
 # repo = 'junegunn/fzf'
 # build = './install --bin'
@@ -305,10 +309,10 @@ on_cmd = ['TagbarToggle']
 # repo = 'junegunn/fzf.vim'
 # depends = 'fzf'
 
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-name = 'ctrlp'
-on_cmd = ['CtrlP', 'CtrlpBuffer', 'CtrlPMRU', 'CtrlPMixed']
+# [[plugins]]
+# repo = 'ctrlpvim/ctrlp.vim'
+# name = 'ctrlp'
+# on_cmd = ['CtrlP', 'CtrlpBuffer', 'CtrlPMRU', 'CtrlPMixed']
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -320,10 +324,6 @@ repo = 'Xuyuanp/nerdtree-git-plugin'
 name = 'nerdtree-git'
 on_source = 'nerdtree'
 depends = 'nerdtree'
-
-[[plugins]]
-repo = 'mbbill/undotree'
-on_cmd = ['UndotreeToggle']
 
 ###############
 # Git #########
