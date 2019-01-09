@@ -17,7 +17,7 @@ else
 endif
 
 let $BUNDLE_DIR=expand('$EDITOR_ROOT/bundle')
-let $CACHE_DIR=expand('$EDIROT_ROOT/.cache')
+let $CACHE_DIR=expand('$EDITOR_ROOT/.cache')
 
 set runtimepath+=$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim
 
