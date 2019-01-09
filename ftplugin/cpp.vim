@@ -32,9 +32,9 @@ if dein#tap('neoinclude')
     endif
 endif
 
-if dein#tap('ale')
+if dein#tap('neomake')
     if !empty(s:flags['all'])
-        let g:ale_cpp_clang_options=join(s:flags.all, ' ')
-        let g:ale_c_gcc_options=join(s:flags.all, ' ')
+        let g:neomake_cpp_clang_args=join(s:flags.all, ' ')
+        let g:neomake_c_clang_args=join(s:flags.all, ' ')
     endif
 endif
