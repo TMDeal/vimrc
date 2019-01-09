@@ -57,6 +57,7 @@ endif
 
 if !empty(dein#check_clean())
     call map(dein#check_clean(), "delete(v:val, 'rf')")
+    call dein#recache_runtimepath()
 endif
 
 if dein#tap('leader-guide')
