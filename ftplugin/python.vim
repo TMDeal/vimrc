@@ -43,11 +43,14 @@ function! s:SetLeaderGuideMappings()
                             \'execute "PymodeRopeNewProject" . projectroot#guess() | let g:pymode_rope_regenerate_on_write=1',
                             \'new rope project']
                 let g:leader_map.m.r.C = ['PymodeRopeRegenerate', 'recache']
-                let g:leader_map.m.r.M = ['call pymode#rope#move()', 'move']
+                let g:leader_map.m.r.a = ['PymodeRopeAutoImport', 'rope autoimport']
                 let g:leader_map.m.r.u = ['PymodeRopeUndo', 'undo']
                 let g:leader_map.m.r.R = ['PymodeRopeRedo', 'redo']
+                let g:leader_map.m.r.n = ['PymodeRopeNewProject', 'new']
+                let g:leader_map.m.r.G = ['PymodeRopeRegenerate', 'regenerate']
+
+                let g:leader_map.m.r.M = ['call pymode#rope#move()', 'move']
                 let g:leader_map.m.r.r = ['call pymode#rope#rename()', 'rename']
-                let g:leader_map.m.r.a = ['PymodeRopeAutoImport', 'rope autoimport']
                 let g:leader_map.m.r.F = ['call pymode#rope#use_function()', 'use function']
                 let g:leader_map.m.r.g = ['call pymode#rope#goto_definition()', 'goto']
                 let g:leader_map.m.r.s = ['call pymode#rope#signature()', 'change signature']
@@ -78,8 +81,6 @@ endfunction
 function! s:RopeProjectIfExistsSettings()
     if isdirectory(projectroot#guess() . '/.ropeproject')
         let g:pymode_rope_regenerate_on_write=1
-    else
-        let g:pymode_rope_regenerate_on_write=0
     endif
 endfunction
 
@@ -131,13 +132,14 @@ if dein#tap('python-mode')
 
     " Virtualenv
     let g:pymode_virtualenv=0
-
-    " Lint
-    let g:pymode_lint=0
+    let g:pymode_virtualenv_path=$VIRTUAL_ENV
 
     " Run
     let g:pymode_run=1
     let g:pymode_run_bind=''
+
+    " Lint
+    let g:pymode_lint=0
 
     " Breakpoints
     let g:pymode_breakpoint=0
@@ -145,7 +147,9 @@ if dein#tap('python-mode')
     let g:pymode_breakpoint_cmd=''
 
     " Rope
-    let g:pymode_rope=1
+    let g:pymode_rope=0
+
+    let g:pymode_rope_regenerate_on_write=0
 
     let g:pymode_rope_ropefolder='.ropeproject'
     let g:pymode_rope_project_root=''
@@ -153,9 +157,11 @@ if dein#tap('python-mode')
     let g:pymode_rope_lookup_project=0
 
     let g:pymode_rope_completion=0
+    let g:pymode_rope_complete_on_dot=0
 
     let g:pymode_rope_autoimport=1
     let g:pymode_rope_autoimport_import_after_complete=1
+    let g:pymode_rope_autoimport_modules=['os', 'shutil', 'datetime']
 
     let g:pymode_rope_goto_definition_cmd='new'
 
