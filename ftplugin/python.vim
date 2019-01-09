@@ -5,6 +5,28 @@ function! s:SetLeaderGuideMappings()
         if dein#tap('shebang')
             let g:leader_map.m['!'] = ['ShebangInsert', 'shebang']
         endif
+
+        if dein#tap('jedi')
+            let g:leader_map.m.g = ['jedi#goto()', 'go to definition or assignment']
+            let g:leader_map.m.a = ['jedi#goto_assignments()', 'go to assignment']
+            let g:leader_map.m.d = ['jedi#goto_definitions()', 'go to definition']
+            let g:leader_map.m.r = ['jedi#rename()', 'rename under cursor']
+            let g:leader_map.m.h = ['jedi#usages()', 'show usages']
+        endif
+
+        if dein#tap('pony')
+            if exists('b:is_django')
+                let g:leader_map.m.p = {'name': '[django]'}
+                let g:leader_map.m.p.a = ['call feedkeys(":Dadmin ")', 'GoTo admin']
+                let g:leader_map.m.p.m = ['call feedkeys(":Dmodels ")', 'GoTo models']
+                let g:leader_map.m.p.s = ['call feedkeys(":Dsettings ")', 'GoTo settings']
+                let g:leader_map.m.p.t = ['call feedkeys(":Dtests ")', 'GoTo tests']
+                let g:leader_map.m.p.u = ['call feedkeys(":Durls ")', 'GoTo urls']
+                let g:leader_map.m.p.v = ['call feedkeys(":Dviews ")', 'GoTo views']
+                let g:leader_map.m.p.M = ['call feedkeys(":Dmanage ")', 'manage']
+            endif
+        endif
+
         if dein#tap('python-mode')
             if g:pymode_run==1
                 let g:leader_map.m.R = ['PymodeRun', 'Run code']
@@ -35,15 +57,18 @@ function! s:SetLeaderGuideMappings()
                 let g:leader_map.m.r.v = ['call pymode#rope#extract_variable()', 'extract variable']
             endif
         endif
+
         if dein#tap('python-virtualenv')
             let g:leader_map.m.v = {'name': '[virtualenv]'}
             let g:leader_map.m.v.l = ['VirtualEnvList', 'show virtualenvs']
             let g:leader_map.m.v.d = ['VirtualEnvDeactivate', 'deactivate virtualenv']
             let g:leader_map.m.v.a = ['call feedkeys(":VirtualEnvActivate ")', 'activate virtualenv']
         endif
+
         if dein#tap('pydocstring')
             let g:leader_map.m.D = ['Pydocstring', 'pydocstring']
         endif
+
         if dein#tap('impsort')
             let g:leader_map.m.I = ['ImpSort!', 'sort imports']
         endif
@@ -62,6 +87,22 @@ augroup my_autocmds
     au BufEnter * if &ft ==# 'python' | call s:SetLeaderGuideMappings() | endif
     au BufEnter * if &ft ==# 'python' | call s:RopeProjectIfExistsSettings() | endif
 augroup END
+
+if dein#tap('jedi')
+    let g:jedi#completions_enabled=0
+    let g:jedi#auto_vim_configuration=0
+    let g:jedi#show_call_signatures=0
+    let g:jedi#show_call_signatures_delay=0
+
+    let g:jedi#documentation_command='K'
+
+    let g:jedi#completions_command=''
+    let g:jedi#goto_command=''
+    let g:jedi#goto_assignments_command=''
+    let g:jedi#goto_definitions_command=''
+    let g:jedi#rename_command=''
+    let g:jedi#usages_command=''
+endif
 
 if dein#tap('python-mode')
     " Common
@@ -96,7 +137,7 @@ if dein#tap('python-mode')
 
     " Run
     let g:pymode_run=1
-    let g:pymode_run_bind='<leader>mR'
+    let g:pymode_run_bind=''
 
     " Breakpoints
     let g:pymode_breakpoint=0
@@ -104,26 +145,38 @@ if dein#tap('python-mode')
     let g:pymode_breakpoint_cmd=''
 
     " Rope
-    let g:pymode_rope=0
-    let g:pymode_rope_lookup_project=0
-    let g:pymode_rope_project_root=''
+    let g:pymode_rope=1
+
     let g:pymode_rope_ropefolder='.ropeproject'
+    let g:pymode_rope_project_root=''
+    let g:pymode_rope_current=''
+    let g:pymode_rope_lookup_project=0
+
     let g:pymode_rope_completion=0
+
+    let g:pymode_rope_autoimport=1
+    let g:pymode_rope_autoimport_import_after_complete=1
+
     let g:pymode_rope_goto_definition_cmd='new'
 
-    let g:pymode_rope_show_doc_bind          = ''
-    let g:pymode_rope_organize_imports_bind  = ''
-    let g:pymode_rope_move_bind              = ''
-    let g:pymode_rope_find_it_bind           = ''
-    let g:pymode_rope_rename_bind            = ''
     let g:pymode_rope_autoimport_bind        = ''
-    let g:pymode_rope_use_function_bind      = ''
-    let g:pymode_rope_rename_module_bind     = ''
-    let g:pymode_rope_extract_method_bind    = ''
+    let g:pymode_rope_completion_bind        = ''
     let g:pymode_rope_goto_definition_bind   = ''
-    let g:pymode_rope_change_signature_bind  = ''
-    let g:pymode_rope_extract_variable_bind  = ''
+    let g:pymode_rope_show_doc_bind          = ''
+    let g:pymode_rope_find_it_bind           = ''
+    let g:pymode_rope_organize_imports_bind  = ''
+    let g:pymode_rope_rename_bind            = ''
+    let g:pymode_rope_rename_module_bind     = ''
     let g:pymode_rope_module_to_package_bind = ''
+    let g:pymode_rope_extract_method_bind    = ''
+    let g:pymode_rope_extract_variable_bind  = ''
+    let g:pymode_rope_inline_bind            = ''
+    let g:pymode_rope_move_bind              = ''
+    let g:pymode_rope_generate_function_bind = ''
+    let g:pymode_rope_generate_class_bind    = ''
+    let g:pymode_rope_generate_package_bind  = ''
+    let g:pymode_rope_change_signature_bind  = ''
+    let g:pymode_rope_use_function_bind      = ''
 endif
 
 if dein#tap('pydocstring')
