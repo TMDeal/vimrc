@@ -76,20 +76,9 @@ on_ft = ['elixir']
 ####################
 
 [[plugins]]
-repo = 'jpalardy/vim-slime'
-name = 'slime'
-on_if = 'exists("$TMUX")'
-hook_add = '''
-let g:slime_target='tmux'
-let g:slime_paste_file=$EDITOR_ROOT . '/.slime_paste'
-let g:slime_default_config={'socket_name': 'default', 'target_pane': '1.2'}
-let g:slime_python_ipython=1
-'''
-
-[[plugins]]
 repo = 'python-mode/python-mode'
 on_ft = ['python']
-build = 'git submodule update --init --recursive'
+# build = 'git submodule update --init --recursive'
 
 [[plugins]]
 repo = 'jmcantrell/vim-virtualenv'
@@ -105,6 +94,20 @@ on_ft = ['python']
 [[plugins]]
 repo = 'tweekmonster/impsort.vim'
 name = 'impsort'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'tweekmonster/django-plus.vim'
+name = 'django'
+
+[[plugins]]
+repo = 'jmcomets/vim-pony'
+name = 'pony'
+on_if = 'exists("b:is_django")'
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+name = 'jedi'
 on_ft = ['python']
 
 [[plugins]]
@@ -138,7 +141,7 @@ on_ft = ['go']
 #########################
 
 [[plugins]]
-repo = 'vim-scripts/Emmet.vim'
+repo = 'mattn/emmet-vim'
 name = 'emmet'
 on_ft = ['html', 'javascript', 'javascript.jsx', 'jinja', 'gohtmltmpl', 'eelixir']
 
@@ -165,13 +168,14 @@ repo = 'cakebaker/scss-syntax.vim'
 name = 'scss'
 on_ft = ['scss']
 
-#######################
-# javascript ###############
-#######################
+#######################################
+# javascript/typescript ###############
+#######################################
 
 [[plugins]]
 repo = 'jaawerth/nrun.vim'
 name = 'nrun'
+on_func = ['nrun#Which']
 
 [[plugins]]
 repo = 'dunckr/js_alternate.vim'
@@ -207,6 +211,7 @@ on_ft = ['javascript', 'javascript.jsx']
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 name = 'javascript'
+on_ft = ['javascript', 'javascript.jsx']
 hook_add = '''
 let g:javascript_plugin_jsdoc=1
 let g:javascript_plugin_ngdoc=1
@@ -216,13 +221,10 @@ let g:javascript_plugin_flow=1
 [[plugins]]
 repo = 'elzr/vim-json'
 name = 'json'
+on_ft = ['json']
 hook_add = '''
 let g:vim_json_syntax_conceal=0
 '''
-
-######################
-# typescript #########
-######################
 
 [[plugins]]
 repo = 'bdauria/angular-cli.vim'
@@ -248,6 +250,7 @@ on_ft = ['typescript', 'javascript', 'javascript.jsx']
 [[plugins]]
 repo = 'cespare/vim-toml'
 name = 'toml'
+on_ft = ['toml']
 
 ####################
 # Project ##########
@@ -281,10 +284,10 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 # Tags #############
 ####################
 
-# [[plugins]]
-# repo = 'ludovicchabant/vim-gutentags'
-# name = 'gutentags'
-# if = 'executable("ctags")'
+[[plugins]]
+repo = 'ludovicchabant/vim-gutentags'
+name = 'gutentags'
+if = 'executable("ctags")'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
@@ -300,19 +303,15 @@ on_cmd = ['TagbarToggle']
 repo = 'Shougo/denite.nvim'
 name = 'denite'
 
-# [[plugins]]
-# repo = 'junegunn/fzf'
-# build = './install --bin'
-# merged = 0
-#
-# [[plugins]]
-# repo = 'junegunn/fzf.vim'
-# depends = 'fzf'
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+name = 'neoyank'
 
-# [[plugins]]
-# repo = 'ctrlpvim/ctrlp.vim'
-# name = 'ctrlp'
-# on_cmd = ['CtrlP', 'CtrlpBuffer', 'CtrlPMRU', 'CtrlPMixed']
+[[plugins]]
+repo = 'chemzqm/unite-location'
+
+[[plugins]]
+repo = 'chemzqm/denite-git'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -332,6 +331,7 @@ depends = 'nerdtree'
 [[plugins]]
 repo = 'rhysd/committia.vim'
 name = 'committia'
+on_path = "COMMIT_EDITMSG"
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -353,6 +353,7 @@ repo = 'neomake/neomake'
 
 [[plugins]]
 repo = 'sinetoami/lightline-neomake'
+depends = 'neomake'
 
 ####################
 # Format ###########
@@ -385,6 +386,7 @@ repo = 'Shougo/neosnippet'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+depends = 'neosnippet'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -476,3 +478,14 @@ on_cmd = ['ShebangInsert']
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
 name = 'tmux-navigator'
+
+[[plugins]]
+repo = 'jpalardy/vim-slime'
+name = 'slime'
+on_if = 'exists("$TMUX")'
+hook_add = '''
+let g:slime_target='tmux'
+let g:slime_paste_file=$EDITOR_ROOT . '/.slime_paste'
+let g:slime_default_config={'socket_name': 'default', 'target_pane': '1.2'}
+let g:slime_python_ipython=1
+'''
