@@ -31,6 +31,11 @@ function! s:SetLeaderGuideMappings()
                 let g:leader_map.m.i.l = ['GoDeclsDir', 'show declarations in dir']
             endif
 
+            if dein#tap('denite')
+                let g:leader_map.m.i.L = ["execute 'Denite decls:' . expand('%')", 'show declarations in file']
+                let g:leader_map.m.i.l = ['Denite decls', 'show declarations in file']
+            endif
+
             let g:leader_map.m.r = {'name': '[refactor]'}
             let g:leader_map.m.r.r = ['GoRename', 'rename']
             let g:leader_map.m.r.i = ['GoImpl', 'implement interface']
