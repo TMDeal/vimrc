@@ -16,6 +16,9 @@ else
     let $EDITOR_ROOT=expand('$HOME/.vim')
 endif
 
+let $BUNDLE_DIR=expand('$EDITOR_ROOT/bundle')
+let $CACHE_DIR=expand('$EDIROT_ROOT/.cache')
+
 set runtimepath+=$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim
 
 let g:root_markers=[
@@ -32,12 +35,12 @@ let g:root_markers=[
             \]
 
 if !isdirectory(expand('$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim'))
-    !curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | bash -s -- $EDITOR_ROOT/bundle
+    !curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | bash -s -- $BUNDLE_DIR
 endif
 
-for s:dir in ['.cache/tags', '.cache/backup', '.cache/undo', '.cache/swap']
-    if !isdirectory(expand($EDITOR_ROOT . '/' . s:dir))
-        call mkdir(expand($EDITOR_ROOT . '/' . s:dir), 'p')
+for s:dir in ['tags', 'backup', 'undo', 'swap']
+    if !isdirectory(expand($CACHE_DIR . '/' . s:dir))
+        call mkdir(expand($CACHE_DIR . '/' . s:dir), 'p')
     endif
 endfor
 
