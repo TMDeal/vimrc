@@ -15,6 +15,8 @@ function! leader#Init()
     let g:leader_map.g   = {'name': '[git]'}
     let g:leader_map.w   = {'name': '[window]'}
     let g:leader_map.T   = {'name': '[tabs]'}
-    let g:leader_map.t   = {'name': '[tree]'}
+    let g:leader_map.t   = {'name': '[tags]'}
     let g:leader_map.y   = {'name': '[yankring]'}
+
+    let g:leader_map.n   = ['NERDTreeToggle', 'NERDTree']
 endfunction
