@@ -18,8 +18,13 @@ endif
 
 let $BUNDLE_DIR=expand('$EDITOR_ROOT/bundle')
 let $CACHE_DIR=expand('$EDITOR_ROOT/.cache')
+let $DEIN_DIR=expand('$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim')
 
-set runtimepath+=$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim
+if !isdirectory(expand('$DEIN_DIR'))
+    !curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | bash -s -- $BUNDLE_DIR
+endif
+
+set runtimepath+=$DEIN_DIR
 
 let g:root_markers=[
             \'.projectroot',
@@ -34,18 +39,14 @@ let g:root_markers=[
             \'angular.json'
             \]
 
-if !isdirectory(expand('$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim'))
-    !curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | bash -s -- $BUNDLE_DIR
-endif
-
 for s:dir in ['tags', 'backup', 'undo', 'swap']
     if !isdirectory(expand($CACHE_DIR . '/' . s:dir))
         call mkdir(expand($CACHE_DIR . '/' . s:dir), 'p')
     endif
 endfor
 
-if dein#load_state(expand('$EDITOR_ROOT/bundle'))
-    call dein#begin(expand('$EDITOR_ROOT/bundle'))
+if dein#load_state(expand('$BUNDLE_DIR'))
+    call dein#begin(expand('$BUNDLE_DIR'))
 
     call dein#load_toml('$EDITOR_ROOT/plugins.toml')
 
