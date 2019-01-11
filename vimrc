@@ -6,22 +6,35 @@ nnoremap <SPACE> <NOP>
 let g:mapleader="\<SPACE>"
 let g:maplocalleader="\<SPACE>"
 
+if has('win16') || has('win32') || has('win64')
+    let g:sep = '\'
+else
+    let g:sep = '/'
+endif
+
 if !exists('g:leader_map')
     call leader#Init()
 endif
 
 if has('nvim')
-    let $EDITOR_ROOT=expand('$HOME/.config/nvim')
+    if has('win16') || has('win32') || has('win64')
+        let $EDITOR_ROOT=expand('$HOME'.g:sep).join(['AppData', 'Local', 'nvim'], g:sep)
+    else
+        let $EDITOR_ROOT=expand('$HOME'.g:sep).join(['.config', 'nvim'], g:sep)
+    endif
 else
-    let $EDITOR_ROOT=expand('$HOME/.vim')
+    let $EDITOR_ROOT=expand('$HOME'.g:sep).join(['.vim'], g:sep)
 endif
 
-let $BUNDLE_DIR=expand('$EDITOR_ROOT/bundle')
-let $CACHE_DIR=expand('$EDITOR_ROOT/.cache')
-let $DEIN_DIR=expand('$EDITOR_ROOT/bundle/repos/github.com/Shougo/dein.vim')
+let $BUNDLE_DIR=expand('$EDITOR_ROOT'.g:sep).join(['bundle'], g:sep)
+let $CACHE_DIR=expand('$EDITOR_ROOT'.g:sep).join(['.cache'], g:sep)
+let $DEIN_DIR=expand('$BUNDLE_DIR'.g:sep).join(['repos', 'github.com', 'Shougo', 'dein.vim'], g:sep)
 
 if !isdirectory(expand('$DEIN_DIR'))
-    !curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | bash -s -- $BUNDLE_DIR
+    if executable('git')
+       let command=expand('!git clone https://github.com/Shougo/dein.vim $DEIN_DIR')
+       exec command
+    endif
 endif
 
 set runtimepath+=$DEIN_DIR
@@ -40,15 +53,15 @@ let g:root_markers=[
             \]
 
 for s:dir in ['tags', 'backup', 'undo', 'swap']
-    if !isdirectory(expand($CACHE_DIR . '/' . s:dir))
-        call mkdir(expand($CACHE_DIR . '/' . s:dir), 'p')
+    if !isdirectory(expand($CACHE_DIR . g:sep .s:dir))
+        call mkdir(expand($CACHE_DIR . g:sep .s:dir))
     endif
 endfor
 
 if dein#load_state(expand('$BUNDLE_DIR'))
     call dein#begin(expand('$BUNDLE_DIR'))
 
-    call dein#load_toml('$EDITOR_ROOT/plugins.toml')
+    call dein#load_toml('$EDITOR_ROOT' . g:sep . 'plugins.toml')
 
     call dein#end()
     call dein#save_state()
