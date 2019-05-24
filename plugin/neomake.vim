@@ -10,7 +10,7 @@ if dein#tap('neomake')
     let g:lightline#neomake#prefix_errors=get(g:, 'neomake_error_sign').text . ' '
     let g:lightline#neomake#prefix_ok='OK'
 
+
     let g:neomake_highlight_columns=0
     let g:neomake_highlight_lines=0
-    let g:neomake_go_enabled_makers=['go']
 endif
