@@ -7,24 +7,11 @@ function! s:SetLeaderGuideMappings()
         endif
 
         if dein#tap('jedi')
-            let g:leader_map.m.g = ['jedi#goto()', 'go to definition or assignment']
-            let g:leader_map.m.a = ['jedi#goto_assignments()', 'go to assignment']
-            let g:leader_map.m.d = ['jedi#goto_definitions()', 'go to definition']
-            let g:leader_map.m.r = ['jedi#rename()', 'rename under cursor']
-            let g:leader_map.m.h = ['jedi#usages()', 'show usages']
-        endif
-
-        if dein#tap('pony')
-            if exists('b:is_django')
-                let g:leader_map.m.p = {'name': '[django]'}
-                let g:leader_map.m.p.a = ['call feedkeys(":Dadmin ")', 'GoTo admin']
-                let g:leader_map.m.p.m = ['call feedkeys(":Dmodels ")', 'GoTo models']
-                let g:leader_map.m.p.s = ['call feedkeys(":Dsettings ")', 'GoTo settings']
-                let g:leader_map.m.p.t = ['call feedkeys(":Dtests ")', 'GoTo tests']
-                let g:leader_map.m.p.u = ['call feedkeys(":Durls ")', 'GoTo urls']
-                let g:leader_map.m.p.v = ['call feedkeys(":Dviews ")', 'GoTo views']
-                let g:leader_map.m.p.M = ['call feedkeys(":Dmanage ")', 'manage']
-            endif
+            let g:leader_map.m.g = ['call jedi#goto()', 'go to definition or assignment']
+            let g:leader_map.m.a = ['call jedi#goto_assignments()', 'go to assignment']
+            let g:leader_map.m.d = ['call jedi#goto_definitions()', 'go to definition']
+            let g:leader_map.m.r = ['call jedi#rename()', 'rename under cursor']
+            let g:leader_map.m.h = ['call jedi#usages()', 'show usages']
         endif
 
         if dein#tap('python-mode')
@@ -36,29 +23,47 @@ function! s:SetLeaderGuideMappings()
                 let g:leader_map.m.b = ['call pymode#breakpoint#operate(line('.'))', 'add breakpoint']
             endif
 
+            if g:pymode_virtualenv==1
+                let g:leader_map.m.v = ['call feedkeys(":PymodeVirtualenv ")', 'virtualenv']
+            endif
+
             if g:pymode_rope==1
                 let g:leader_map.m.r = {'name': '[rope]'}
 
-                let g:leader_map.m.r.N = [
+                let g:leader_map.m.r.n = [
                             \'execute "PymodeRopeNewProject" . projectroot#guess() | let g:pymode_rope_regenerate_on_write=1',
                             \'new rope project']
-                let g:leader_map.m.r.C = ['PymodeRopeRegenerate', 'recache']
-                let g:leader_map.m.r.a = ['PymodeRopeAutoImport', 'rope autoimport']
                 let g:leader_map.m.r.u = ['PymodeRopeUndo', 'undo']
-                let g:leader_map.m.r.R = ['PymodeRopeRedo', 'redo']
-                let g:leader_map.m.r.n = ['PymodeRopeNewProject', 'new']
-                let g:leader_map.m.r.G = ['PymodeRopeRegenerate', 'regenerate']
+                let g:leader_map.m.r.r = ['PymodeRopeRedo', 'redo']
 
-                let g:leader_map.m.r.M = ['call pymode#rope#move()', 'move']
-                let g:leader_map.m.r.r = ['call pymode#rope#rename()', 'rename']
-                let g:leader_map.m.r.F = ['call pymode#rope#use_function()', 'use function']
+                let g:leader_map.m.r.i = {'name': '[imports]'}
+                let g:leader_map.m.r.i.a = ['PymodeRopeAutoImport', 'autoimport']
+                let g:leader_map.m.r.i.o = ['call pymode#rope#organize_imports()', 'organize imports']
+
+                let g:leader_map.m.r.G = {'name': '[generate]'}
+                let g:leader_map.m.r.G.r = ['PymodeRopeRegenerate', 'generate rope']
+                let g:leader_map.m.r.G.f = ['call pymode#rope#generate_function()', 'generate function']
+                let g:leader_map.m.r.G.p = ['call pymode#rope#generate_package()', 'generate package']
+
+                let g:leader_map.m.r.r = {'name': '[refactor]'}
+                let g:leader_map.m.r.r.r = ['call pymode#rope#rename()', 'rename']
+                let g:leader_map.m.r.r.R = ['call pymode#rope#rename_module()', 'rename module']
+                let g:leader_map.m.r.r.p = ['call pymode#rope#module_to_package()', 'module to package']
+                let g:leader_map.m.r.r.m = ['call pymode#rope#extract_method()', 'extract method']
+                let g:leader_map.m.r.r.v = ['call pymode#rope#extract_variable()', 'extract variable']
+                let g:leader_map.m.r.r.u = ['call pymode#rope#use_function()', 'use function']
+                let g:leader_map.m.r.r.s = ['call pymode#rope#signature()', 'change signature']
+                let g:leader_map.m.r.r.m = ['call pymode#rope#move()', 'move']
+
                 let g:leader_map.m.r.g = ['call pymode#rope#goto_definition()', 'goto']
-                let g:leader_map.m.r.s = ['call pymode#rope#signature()', 'change signature']
-                let g:leader_map.m.r.m = ['call pymode#rope#rename_module()', 'rename module']
-                let g:leader_map.m.r.p = ['call pymode#rope#module_to_package()', 'module to package']
-                let g:leader_map.m.r.f = ['call pymode#rope#extract_method()', 'extract method']
-                let g:leader_map.m.r.v = ['call pymode#rope#extract_variable()', 'extract variable']
+                let g:leader_map.m.r.f = ['call pymode#rope#find_it()', 'find it']
+
+                let g:leader_map.m.r.d = ['call pymode#rope#show_doc()', 'show doc']
             endif
+        endif
+
+        if dein#tap('neoformat')
+            let g:leader_map.m.f = ['Neoformat yapf', 'format']
         endif
 
         if dein#tap('python-virtualenv')
@@ -70,10 +75,6 @@ function! s:SetLeaderGuideMappings()
 
         if dein#tap('pydocstring')
             let g:leader_map.m.D = ['Pydocstring', 'pydocstring']
-        endif
-
-        if dein#tap('impsort')
-            let g:leader_map.m.I = ['ImpSort!', 'sort imports']
         endif
     endif
 endfunction
@@ -89,10 +90,16 @@ augroup my_autocmds
     au BufEnter * if &ft ==# 'python' | call s:RopeProjectIfExistsSettings() | endif
 augroup END
 
+if dein#tap('neomake')
+    let b:neomake_python_python_exe='python2'
+endif
+
 if dein#tap('jedi')
+    EchoDocDisable
+
     let g:jedi#completions_enabled=0
     let g:jedi#auto_vim_configuration=0
-    let g:jedi#show_call_signatures=0
+    let g:jedi#show_call_signatures=2
     let g:jedi#show_call_signatures_delay=0
 
     let g:jedi#documentation_command='K'
@@ -108,13 +115,14 @@ endif
 if dein#tap('python-mode')
     " Common
     let g:pymode=1
-    let g:pymode_python='python3'
     let g:pymode_warnings=0
     let g:pymode_trim_whitespaces=1
     let g:pymode_options_max_line_length=100
     let g:pymode_options_colorcolumn=0
     let g:pymode_quickfix_minheight=3
     let g:pymode_quickfix_maxheight=6
+
+    let g:pymode_python='python3'
 
     " Indent/Syntax
     let g:pymode_indent=1
@@ -138,16 +146,16 @@ if dein#tap('python-mode')
     let g:pymode_run=1
     let g:pymode_run_bind=''
 
-    " Lint
-    let g:pymode_lint=0
-
     " Breakpoints
     let g:pymode_breakpoint=0
     let g:pymode_breakpoint_bind=''
     let g:pymode_breakpoint_cmd=''
 
+    " Lint
+    let g:pymode_lint=0
+
     " Rope
-    let g:pymode_rope=0
+    let g:pymode_rope=1
 
     let g:pymode_rope_regenerate_on_write=0
 
@@ -160,10 +168,10 @@ if dein#tap('python-mode')
     let g:pymode_rope_complete_on_dot=0
 
     let g:pymode_rope_autoimport=1
-    let g:pymode_rope_autoimport_import_after_complete=1
-    let g:pymode_rope_autoimport_modules=['os', 'shutil', 'datetime']
+    let g:pymode_rope_autoimport_import_after_complete=0
+    let g:pymode_rope_autoimport_modules=[]
 
-    let g:pymode_rope_goto_definition_cmd='new'
+    let g:pymode_rope_goto_definition_cmd='vnew'
 
     let g:pymode_rope_autoimport_bind        = ''
     let g:pymode_rope_completion_bind        = ''
