@@ -79,6 +79,10 @@ augroup my_autocmds
     au BufEnter * if &ft ==# 'go' | call s:SetLeaderGuideMappings() | endif
 augroup END
 
+if dein#tap('neomake')
+    let b:neomake_go_enabled_makers=['go']
+endif
+
 if dein#tap('go')
     let g:go_disable_autoinstall=0
     let g:go_auto_type_info=0
