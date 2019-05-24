@@ -19,8 +19,12 @@ options     head
 	{% include "${0:TARGET}" %}
 
 snippet     extends
-options      head
+options     head
     {% extends "${0:TARGET}" %}
+
+snippet     load
+options     head
+    {% load "${0:TARGET}" %}
 
 snippet     block
 options     head
