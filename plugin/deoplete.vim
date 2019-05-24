@@ -2,8 +2,8 @@ if dein#tap('deoplete')
     "Deoplete Settings
     let g:deoplete#enable_at_startup=1
 
-    let g:deoplete#auto_complete_delay=5  " Default is 50
-    let g:deoplete#auto_refresh_delay=30  " Default is 500
+    let g:deoplete#auto_complete_delay=50  " Default is 50
+    let g:deoplete#auto_refresh_delay=250  " Default is 500
 
     let g:deoplete#enable_smart_case=0
     let g:deoplete#max_menu_width=80
