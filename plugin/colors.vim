@@ -12,6 +12,15 @@ if dein#tap('jellybeans')
     colorscheme jellybeans
 endif
 
+hi Normal guibg=None
+hi Normal guibg=NONE
+hi SignColumn guibg=NONE
+hi NonText guibg=NONE
+hi LineNr guibg=NONE
+hi Folded guibg=NONE guifg=7
+hi SpecialKey guibg=NONE
+
+
 hi Normal ctermbg=NONE
 hi SignColumn ctermbg=NONE
 hi NonText ctermbg=NONE
