@@ -42,6 +42,7 @@ on_ft = ['c', 'cpp']
 [[plugins]]
 repo = 'zchee/deoplete-clang'
 on_ft = ['c', 'cpp']
+if = 'executable("clang")'
 
 [[plugins]]
 repo = 'octol/vim-cpp-enhanced-highlight'
@@ -229,6 +230,7 @@ on_ft = ['typescript']
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
+if = 'executable("typescript")'
 build = './install.sh'
 on_ft = ['typescript', 'javascript', 'javascript.jsx']
 
