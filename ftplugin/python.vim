@@ -91,7 +91,8 @@ augroup my_autocmds
 augroup END
 
 if dein#tap('neomake')
-    let b:neomake_python_python_exe='python2'
+    let b:neomake_python_python_exe='python'
+    let g:neomake_python_enabled_makers = ['flake8']
 endif
 
 if dein#tap('jedi')
@@ -139,7 +140,7 @@ if dein#tap('python-mode')
     let g:pymode_doc_bind='K'
 
     " Virtualenv
-    let g:pymode_virtualenv=0
+    let g:pymode_virtualenv=1
     let g:pymode_virtualenv_path=$VIRTUAL_ENV
 
     " Run
@@ -171,7 +172,7 @@ if dein#tap('python-mode')
     let g:pymode_rope_autoimport_import_after_complete=0
     let g:pymode_rope_autoimport_modules=[]
 
-    let g:pymode_rope_goto_definition_cmd='vnew'
+    let g:pymode_rope_goto_definition_cmd='e'
 
     let g:pymode_rope_autoimport_bind        = ''
     let g:pymode_rope_completion_bind        = ''
