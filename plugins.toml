@@ -40,11 +40,6 @@ name = 'headerguard'
 on_ft = ['c', 'cpp']
 
 [[plugins]]
-repo = 'zchee/deoplete-clang'
-on_ft = ['c', 'cpp']
-if = 'executable("clang")'
-
-[[plugins]]
 repo = 'octol/vim-cpp-enhanced-highlight'
 name = 'cpp-enhanced-hightlight'
 on_ft = ['c', 'cpp']
@@ -95,20 +90,10 @@ on_ft = ['python']
 repo = 'tweekmonster/django-plus.vim'
 name = 'django'
 
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-name = 'jedi'
-on_ft = ['python']
-
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-if = 'has("nvim")'
-on_ft = ['python']
-
-[[plugins]]
-repo = 'lepture/vim-jinja'
-name = 'jinja'
-on_ft = ['jinja']
+# [[plugins]]
+# repo = 'lepture/vim-jinja'
+# name = 'jinja'
+# on_ft = ['jinja']
 
 ####################
 # Go ###############
@@ -119,12 +104,6 @@ repo = 'fatih/vim-go'
 name = 'go'
 on_cmd = ['GoInstallBinaries', 'GoUpdateBinaries']
 on_ft = ['go', 'gohtmltmpl']
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-build = 'make'
-if = 'has("nvim")'
-on_ft = ['go']
 
 #########################
 # html ##################
@@ -228,12 +207,6 @@ repo = 'leafgarland/typescript-vim'
 name = 'typescript'
 on_ft = ['typescript']
 
-[[plugins]]
-repo = 'mhartington/nvim-typescript'
-if = 'executable("tsserver")'
-build = './install.sh'
-on_ft = ['typescript', 'javascript', 'javascript.jsx']
-
 ####################
 # TOML #############
 ####################
@@ -294,20 +267,20 @@ on_cmd = ['TagbarToggle']
 repo = 'brooth/far.vim'
 name = 'far'
 
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-name = 'denite'
+# [[plugins]]
+# repo = 'Shougo/denite.nvim'
+# name = 'denite'
 
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-name = 'neoyank'
-
-[[plugins]]
-repo = 'chemzqm/unite-location'
-
-[[plugins]]
-repo = 'chemzqm/denite-git'
-
+# [[plugins]]
+# repo = 'Shougo/neoyank.vim'
+# name = 'neoyank'
+#
+# [[plugins]]
+# repo = 'chemzqm/unite-location'
+#
+# [[plugins]]
+# repo = 'chemzqm/denite-git'
+#
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeToggle', 'NERDTreeFind']
@@ -343,12 +316,12 @@ let g:gitgutter_map_keys=0
 # Checkers #########
 ####################
 
-[[plugins]]
-repo = 'neomake/neomake'
-
-[[plugins]]
-repo = 'sinetoami/lightline-neomake'
-depends = 'neomake'
+# [[plugins]]
+# repo = 'neomake/neomake'
+#
+# [[plugins]]
+# repo = 'sinetoami/lightline-neomake'
+# depends = 'neomake'
 
 ####################
 # Format ###########
@@ -370,37 +343,12 @@ on_cmd = ['Tabularize']
 ####################
 
 [[plugins]]
+repo = 'neoclide/coc.nvim'
+merge = 0
+build = './install.sh nightly'
+
+[[plugins]]
 repo = 'jiangmiao/auto-pairs'
-
-[[plugins]]
-repo = 'tpope/vim-endwise'
-name = 'endwise'
-
-[[plugins]]
-repo = 'Shougo/neosnippet'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-depends = 'neosnippet'
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-name = 'deoplete'
-
-[[plugins]]
-repo = 'Shougo/neoinclude.vim'
-name = 'neoinclude'
-
-[[plugins]]
-repo = 'Shougo/echodoc.vim'
-name = 'echodoc'
-hook_add = '''
-let g:echodoc#enable_at_startup=1
-'''
-
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
-name = 'context-filetype'
 
 ####################
 # Vim Extensions ###
