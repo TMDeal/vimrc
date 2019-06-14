@@ -1,7 +1,7 @@
 let g:lightline = {
             \ 'colorscheme': 'jellybeans',
             \ 'active': {
-            \   'left': [[ 'mode', 'paste' ], [ 'git', 'virtualenv', 'filename' ], ['ctrlpmark']],
+            \   'left': [[ 'mode', 'paste' ], [ 'git', 'virtualenv', 'filename' ], ['cocstatus']],
             \   'right': [[ 'neomake_warnings', 'neomake_errors', 'neomake_infos', 'neomake_ok' ],
             \            [ 'percent' ],
             \            [ 'langserver' ],
@@ -16,7 +16,7 @@ let g:lightline = {
             \   'fileencoding': 'statusline#Fileencoding',
             \   'langserver': 'LanguageClient#statusLine',
             \   'mode': 'statusline#Mode',
-            \   'ctrlpmark': 'statusline#CtrlPMark',
+            \   'cocstatus': 'coc#status',
             \ },
             \ 'component_expand': {
             \   'neomake_infos': 'lightline#neomake#infos',
@@ -33,7 +33,3 @@ let g:lightline = {
             \ }
 
 let g:tagbar_status_func = 'statusline#TagbarStatusFunc'
-let g:ctrlp_status_func = {
-            \ 'main': 'statusline#CtrlPStatusFunc_1',
-            \ 'prog': 'statusline#CtrlPStatusFunc_2',
-            \ }

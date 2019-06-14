@@ -1,0 +1,15 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "javascript",
+    "python",
+    "html",
+    "css",
+    "json"
+  ],
+
+  "python.jediEnabled": false,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "autopep8"
+}
