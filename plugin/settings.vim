@@ -53,6 +53,7 @@ set listchars=extends:»,precedes:«
 set listchars+=tab:│·,eol:¬
 set listchars+=nbsp:.,trail:.
 set noshowmode
+set colorcolumn=80
 
 set timeout
 set ttimeout
