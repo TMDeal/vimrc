@@ -31,9 +31,6 @@ if dein#tap('neomake')
     endif
 endif
 
-let g:nvim_typescript#javascript_support=1
-TSStart
-
 setlocal shiftwidth=2
 setlocal softtabstop=2
 setlocal tabstop=2
