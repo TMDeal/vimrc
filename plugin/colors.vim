@@ -35,6 +35,8 @@ hi TabLineSel ctermbg=8 ctermfg=15 guibg=#989898 guifg=#ffffff
 hi Error NONE
 hi ErrorMsg NONE
 
+highlight ColorColumn ctermbg=0 guibg=#222222
+
 hi statusline ctermfg=149 ctermbg=0 cterm=NONE
 hi statusline guifg=Black guibg=Grey guisp=NONE
 
