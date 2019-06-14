@@ -96,14 +96,14 @@ if dein#tap('neomake')
 endif
 
 if dein#tap('jedi')
-    EchoDocDisable
+    " EchoDocDisable
 
     let g:jedi#completions_enabled=0
     let g:jedi#auto_vim_configuration=0
-    let g:jedi#show_call_signatures=2
+    let g:jedi#show_call_signatures=0
     let g:jedi#show_call_signatures_delay=0
 
-    let g:jedi#documentation_command='K'
+    let g:jedi#documentation_command=''
 
     let g:jedi#completions_command=''
     let g:jedi#goto_command=''
@@ -136,11 +136,11 @@ if dein#tap('python-mode')
     let g:pymode_motion=1
 
     " Documentaion
-    let g:pymode_doc=1
-    let g:pymode_doc_bind='K'
+    let g:pymode_doc=0
+    " let g:pymode_doc_bind='K'
 
     " Virtualenv
-    let g:pymode_virtualenv=1
+    let g:pymode_virtualenv=0
     let g:pymode_virtualenv_path=$VIRTUAL_ENV
 
     " Run
