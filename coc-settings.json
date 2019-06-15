@@ -11,5 +11,10 @@
   "python.jediEnabled": false,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
-  "python.formatting.provider": "autopep8"
+  "python.formatting.provider": "autopep8",
+
+  "git.enableGutters": true,
+
+  "list.source.files.command": "rg",
+  "list.source.files.args": ["--files"]
 }
