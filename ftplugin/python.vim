@@ -53,7 +53,7 @@ function! s:SetLeaderGuideMappings()
                 let g:leader_map.m.r.r.v = ['call pymode#rope#extract_variable()', 'extract variable']
                 let g:leader_map.m.r.r.u = ['call pymode#rope#use_function()', 'use function']
                 let g:leader_map.m.r.r.s = ['call pymode#rope#signature()', 'change signature']
-                let g:leader_map.m.r.r.m = ['call pymode#rope#move()', 'move']
+                let g:leader_map.m.r.r.M = ['call pymode#rope#move()', 'move']
 
                 let g:leader_map.m.r.g = ['call pymode#rope#goto_definition()', 'goto']
                 let g:leader_map.m.r.f = ['call pymode#rope#find_it()', 'find it']
