@@ -20,7 +20,6 @@ if dein#tap('coc.nvim')
     let g:coc_snippet_next = '<C-k>'
     let g:coc_snippet_prev = '<C-j>'
 
-
     " Use tab for trigger completion with characters ahead and navigate.
     " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
     inoremap <silent><expr> <TAB>
@@ -37,11 +36,6 @@ if dein#tap('coc.nvim')
     " Use <c-space> to trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
 
-    " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-    " Coc only does snippet and additional edit on confirm.
-    " inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
     inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : 
                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -57,19 +51,15 @@ if dein#tap('coc.nvim')
     nmap <silent> gr <Plug>(coc-references)
 
     function! s:show_documentation()
-        " if (index(['vim','help'], &filetype) >= 0)
-        "     execute 'h '.expand('<cword>')
-        " else
-        call CocAction('doHover')
-        " endif
+        if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        else
+            call CocAction('doHover')
+        endif
     endfunction
 
     " Use K to show documentation in preview window
     nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-    " Highlight symbol under cursor on CursorHold
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-
 
     augroup coc_nvim
         au!
@@ -77,6 +67,8 @@ if dein#tap('coc.nvim')
         au FileType typescript,json,html,python setl formatexpr=CocAction('formatSelected')
         " Update signature help on jump placeholder
         au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+        " Highlight symbol under cursor on CursorHold
+        au CursorHold * silent call CocActionAsync('highlight')
     augroup end
 
     " Use `:Format` to format current buffer
@@ -88,29 +80,16 @@ if dein#tap('coc.nvim')
     " use `:ImpSort` for organize import of current buffer
     command! -nargs=0 ImpSort :call CocAction('runCommand', 'editor.action.organizeImport')
 
-    let g:leader_map.p.r = ['call CocActionAsync("rename")', 'rename']
-    let g:leader_map.p.l = [':CocList', 'list']
-    let g:leader_map.p.f = [':CocList files', 'files']
-    let g:leader_map.p.F = ['call CocActionAsync("format")', 'format']
-    let g:leader_map['p'][']'] = [':CocNext', 'next']
-    let g:leader_map['p']['['] = [':CocPrev', 'prev']
-
-
-    " Using CocList
-    " Show all diagnostics
-    " nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-    " Manage extensions
-    " nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-    " Show commands
-    " nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-    " Find symbol of current document
-    " nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-    " Search workspace symbols
-    " nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-    " Do default action for next item.
-    " nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-    " Do default action for previous item.
-    " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-    " Resume latest coc list
-    " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+    let g:leader_map.p.r = ['execute "normal \<Plug>(coc-rename)"', 'rename']
+    let g:leader_map.p.a = ['execute "normal \<Plug>(coc-codeaction)"', 'code action']
+    let g:leader_map.p.F = ['execute "normal \<Plug>(coc-format)"', 'format']
+    let g:leader_map.p.l = ['CocList', 'list']
+    let g:leader_map.p.f = ['CocList files', 'files']
+    let g:leader_map.p.A = ['CocList diagnostics', 'diagnostics']
+    let g:leader_map.p.c = ['CocList commands', 'commands']
+    let g:leader_map.p.o = ['CocList outline', 'outline']
+    let g:leader_map.p.s = ['CocList -I symbols', 'symbols']
+    let g:leader_map['p'][']'] = ['CocNext', 'next']
+    let g:leader_map['p']['['] = ['CocPrev', 'prev']
+    let g:leader_map.p.R = ['CocListResume', 'resume']
 endif
