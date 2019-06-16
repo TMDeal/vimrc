@@ -16,10 +16,6 @@ hook_add = '''
 let g:rootmarkers=g:root_markers
 '''
 
-# [[plugins]]
-# repo = 'EinfachToll/DidYouMean'
-# name = 'did-you-mean'
-
 ####################
 # C/C++ ############
 ####################
@@ -267,20 +263,6 @@ on_cmd = ['TagbarToggle']
 repo = 'brooth/far.vim'
 name = 'far'
 
-# [[plugins]]
-# repo = 'Shougo/denite.nvim'
-# name = 'denite'
-
-# [[plugins]]
-# repo = 'Shougo/neoyank.vim'
-# name = 'neoyank'
-#
-# [[plugins]]
-# repo = 'chemzqm/unite-location'
-#
-# [[plugins]]
-# repo = 'chemzqm/denite-git'
-#
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeToggle', 'NERDTreeFind']
@@ -313,26 +295,8 @@ let g:gitgutter_map_keys=0
 '''
 
 ####################
-# Checkers #########
-####################
-
-# [[plugins]]
-# repo = 'neomake/neomake'
-#
-# [[plugins]]
-# repo = 'sinetoami/lightline-neomake'
-# depends = 'neomake'
-
-####################
 # Format ###########
 ####################
-
-[[plugins]]
-repo = 'sbdchd/neoformat'
-on_cmd = ['Neoformat']
-hook_add = '''
-let g:neoformat_only_msg_on_error = 1
-'''
 
 [[plugins]]
 repo = 'godlygeek/tabular'
