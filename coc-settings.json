@@ -5,7 +5,8 @@
     "python",
     "html",
     "css",
-    "json"
+    "json",
+    "elixir"
   ],
 
   "python.jediEnabled": false,
@@ -20,6 +21,8 @@
   "list.source.files.excludePatterns": [
     "**/_build/**",
     "**/deps/**",
+    "**/priv/static/**",
+    "**/cover/**",
     "**/node_modules/**"
   ],
 

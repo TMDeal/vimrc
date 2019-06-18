@@ -326,6 +326,13 @@ build = './install.sh nightly'
 repo = 'jiangmiao/auto-pairs'
 
 ####################
+# Tests ############
+####################
+
+[[plugins]]
+repo = 'janko/vim-test'
+
+####################
 # Vim Extensions ###
 ####################
 
