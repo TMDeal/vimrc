@@ -16,5 +16,17 @@
   "git.enableGutters": true,
 
   "list.source.files.command": "rg",
-  "list.source.files.args": ["--files"]
+  "list.source.files.args": ["--files"],
+  "list.source.files.excludePatterns": [
+    "**/_build/**",
+    "**/deps/**",
+    "**/node_modules/**"
+  ],
+
+  "languageserver": {
+    "elixirLS": {
+      "command": "~/packages/elixir-ls/release/language_server.sh",
+      "filetypes": ["elixir", "eelixir"]
+    }
+  }
 }

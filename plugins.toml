@@ -58,10 +58,10 @@ repo = 'elixir-editors/vim-elixir'
 name = 'elixir'
 on_ft = ['elixir', 'eelixir']
 
-[[plugins]]
-repo = 'slashmili/alchemist.vim'
-name = 'alchemist'
-on_ft = ['elixir']
+# [[plugins]]
+# repo = 'slashmili/alchemist.vim'
+# name = 'alchemist'
+# on_ft = ['elixir']
 
 ####################
 # Python ###########
@@ -293,6 +293,17 @@ name = 'gitgutter'
 hook_add = '''
 let g:gitgutter_map_keys=0
 '''
+
+####################
+# Checkers #########
+####################
+
+# [[plugins]]
+# repo = 'neomake/neomake'
+#
+# [[plugins]]
+# repo = 'sinetoami/lightline-neomake'
+# depends = 'neomake'
 
 ####################
 # Format ###########
