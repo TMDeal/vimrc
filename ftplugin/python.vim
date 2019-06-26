@@ -7,11 +7,13 @@ function! s:SetLeaderGuideMappings()
         endif
 
         if dein#tap('jedi')
-            let g:leader_map.m.g = ['call jedi#goto()', 'go to definition or assignment']
-            let g:leader_map.m.a = ['call jedi#goto_assignments()', 'go to assignment']
-            let g:leader_map.m.d = ['call jedi#goto_definitions()', 'go to definition']
-            let g:leader_map.m.r = ['call jedi#rename()', 'rename under cursor']
-            let g:leader_map.m.h = ['call jedi#usages()', 'show usages']
+            let g:leader_map.m.j = {'name': '[jedi]'}
+            let g:leader_map.m.j.g = ['call jedi#goto()', 'go to definition or assignment']
+            let g:leader_map.m.j.a = ['call jedi#goto_assignments()', 'go to assignment']
+            let g:leader_map.m.j.d = ['call jedi#goto_definitions()', 'go to definition']
+            let g:leader_map.m.j.r = ['call jedi#rename()', 'rename under cursor']
+            let g:leader_map.m.j.u = ['call jedi#usages()', 'show usages']
+            let g:leader_map.m.j.k = ['call jedi#show_documentation()', 'documentation']
         endif
 
         if dein#tap('python-mode')
@@ -100,15 +102,18 @@ if dein#tap('jedi')
 
     let g:jedi#completions_enabled=0
     let g:jedi#auto_vim_configuration=0
+    let g:jedi#auto_initialization=0
     let g:jedi#show_call_signatures=0
     let g:jedi#show_call_signatures_delay=0
-
-    let g:jedi#documentation_command=''
+    let g:jedi#popup_on_dot=0
+    let g:jedi#popup_select_first=0
+    let g:jedi#smart_auto_mappings=1
 
     let g:jedi#completions_command=''
     let g:jedi#goto_command=''
     let g:jedi#goto_assignments_command=''
     let g:jedi#goto_definitions_command=''
+    let g:jedi#documentation_command=''
     let g:jedi#rename_command=''
     let g:jedi#usages_command=''
 endif
@@ -156,7 +161,7 @@ if dein#tap('python-mode')
     let g:pymode_lint=0
 
     " Rope
-    let g:pymode_rope=1
+    let g:pymode_rope=0
 
     let g:pymode_rope_regenerate_on_write=0
 
