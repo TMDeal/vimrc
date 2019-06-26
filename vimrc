@@ -43,7 +43,8 @@ let g:root_markers=[
             \'mix.exs',
             \'tsconfig.json',
             \'package.json',
-            \'angular.json'
+            \'angular.json',
+            \'venv'
             \]
 
 for s:dir in ['tags', 'backup', 'undo', 'swap']
