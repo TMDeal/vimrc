@@ -58,11 +58,6 @@ repo = 'elixir-editors/vim-elixir'
 name = 'elixir'
 on_ft = ['elixir', 'eelixir']
 
-# [[plugins]]
-# repo = 'slashmili/alchemist.vim'
-# name = 'alchemist'
-# on_ft = ['elixir']
-
 ####################
 # Python ###########
 ####################
@@ -86,10 +81,20 @@ on_ft = ['python']
 repo = 'tweekmonster/django-plus.vim'
 name = 'django'
 
-# [[plugins]]
-# repo = 'lepture/vim-jinja'
-# name = 'jinja'
-# on_ft = ['jinja']
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+name = 'jedi'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'mgedmin/python-imports.vim'
+name = 'python-imports'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'lepture/vim-jinja'
+name = 'jinja'
+on_ft = ['jinja']
 
 ####################
 # Go ###############
@@ -114,7 +119,7 @@ on_ft = ['html', 'javascript', 'javascript.jsx', 'jinja', 'gohtmltmpl', 'eelixir
 repo = 'alvan/vim-closetag'
 name = 'closetag'
 hook_add = '''
-let g:closetag_filenames="*.html,*.php,*.xhtml,*.xml,*.jsx,*.js,*.hbs,*.handlebars,*.jinja,*.tsx,*.vue,*.tmpl,*.erb,*.html.eex"
+let g:closetag_filenames="*.html,*.php,*.xhtml,*.xml,*.jsx,*.js,*.hbs,*.handlebars,*.jinja,*.tsx,*.vue,*.tmpl,*.erb,*.html.eex, *.html.leex"
 let g:closetag_shortcut='>'
 let g:closetag_close_shortcut='<C-x>.'
 '''
