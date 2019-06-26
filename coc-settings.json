@@ -2,8 +2,6 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
     "javascript",
-    "python",
-    "html",
     "css",
     "json",
     "elixir"
