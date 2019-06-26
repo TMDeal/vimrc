@@ -1,6 +1,7 @@
 if dein#tap('coc.nvim')
     let g:coc_filetype_map={
         \ "htmldjango": "html",
+        \ "jinja.html": "html",
         \ "eelixir": "html"
       \ }
 
