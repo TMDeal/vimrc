@@ -7,6 +7,9 @@
     "elixir"
   ],
 
+  "signature.target": "echo",
+  "diagnostic.messageTarget": "echo",
+
   "python.jediEnabled": false,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
@@ -23,11 +26,4 @@
     "**/cover/**",
     "**/node_modules/**"
   ],
-
-  "languageserver": {
-    "elixirLS": {
-      "command": "~/packages/elixir-ls/release/language_server.sh",
-      "filetypes": ["elixir", "eelixir"]
-    }
-  }
 }
