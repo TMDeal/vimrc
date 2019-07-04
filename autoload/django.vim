@@ -7,16 +7,21 @@ function! s:makeProjections() abort
                 \ },
                 \
                 \ "*/urls.py": {
-                \   "type": "urls"
+                \   "type": "urls",
+                \   "alternate": "{}/tests/test_urls.py"
+                \ },
+                \
+                \ "*/tests/test_urls.py": {
+                \   "alternate": "{}/urls.py"
                 \ },
                 \
                 \ "*/views.py": {
                 \   "type": "views",
-                \   "alternate": "{dirname}/tests/test_views.py"
+                \   "alternate": "{}/tests/test_views.py"
                 \ },
                 \
-                \ "*/tests.py": {
-                \   "type": "tests"
+                \ "*/tests/test_views.py": {
+                \   "alternate": "{}/views.py"
                 \ },
                 \
                 \ "*/admin.py": {
@@ -25,12 +30,29 @@ function! s:makeProjections() abort
                 \
                 \ "*/forms.py": {
                 \   "type": "forms",
-                \   "alternate": "{dirname}/tests/test_forms.py"
+                \   "alternate": "{}/tests/test_forms.py"
+                \ },
+                \
+                \ "*/tests/test_forms.py": {
+                \   "alternate": "{}/forms.py"
                 \ },
                 \
                 \ "*/models.py": {
                 \   "type": "models",
-                \   "alternate": "{dirname}/tests/test_models.py"
+                \   "alternate": "{}/tests/test_models.py"
+                \ },
+                \
+                \ "*/tests/test_models.py": {
+                \   "alternate": "{}/models.py"
+                \ },
+                \
+                \ "*/middleware.py": {
+                \   "type": "middleware",
+                \   "alternate": "{}/tests/test_middleware.py"
+                \ },
+                \
+                \ "*/tests/test_middleware.py": {
+                \   "alternate": "{}/middleware.py"
                 \ },
                 \
                 \ "*.html": {
