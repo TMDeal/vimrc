@@ -77,9 +77,9 @@ repo = 'heavenshell/vim-pydocstring'
 name = 'pydocstring'
 on_ft = ['python']
 
-[[plugins]]
-repo = 'tweekmonster/django-plus.vim'
-name = 'django'
+# [[plugins]]
+# repo = 'tweekmonster/django-plus.vim'
+# name = 'django'
 
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
@@ -207,6 +207,10 @@ let g:angular_cli_stylesheet_format="scss"
 repo = 'leafgarland/typescript-vim'
 name = 'typescript'
 on_ft = ['typescript']
+
+[[plugins]]
+repo = 'posva/vim-vue'
+name = 'vue'
 
 ####################
 # TOML #############

@@ -18,6 +18,7 @@ if dein#tap('coc.nvim')
         \ 'coc-tsserver',
         \ 'coc-angular',
         \ 'coc-elixir',
+        \ 'coc-vetur',
       \ ]
 
     let g:coc_snippet_next = '<C-k>'
