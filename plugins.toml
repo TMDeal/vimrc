@@ -77,9 +77,9 @@ repo = 'heavenshell/vim-pydocstring'
 name = 'pydocstring'
 on_ft = ['python']
 
-# [[plugins]]
-# repo = 'tweekmonster/django-plus.vim'
-# name = 'django'
+[[plugins]]
+repo = 'tweekmonster/django-plus.vim'
+name = 'django'
 
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
@@ -187,6 +187,10 @@ let g:javascript_plugin_jsdoc=1
 let g:javascript_plugin_ngdoc=1
 let g:javascript_plugin_flow=1
 '''
+
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'
+name = 'jsx'
 
 [[plugins]]
 repo = 'elzr/vim-json'
