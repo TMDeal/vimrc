@@ -79,8 +79,8 @@ repo = 'tpope/vim-bundler'
 [[plugins]]
 repo = 'tpope/vim-rake'
 
-[[plugins]]
-repo = 'tpope/vim-endwise'
+# [[plugins]]
+# repo = 'tpope/vim-endwise'
 
 [[plugins]]
 repo = 'keith/rspec.vim'

@@ -37,12 +37,23 @@ if dein#tap('coc.nvim')
         return !col || getline('.')[col - 1]  =~# '\s'
     endfunction
 
+
     " Use <c-space> to trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
 
     " inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-    inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : 
-                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    " inoremap <silent><expr> <CR> 
+    "             \ pumvisible() ? coc#_select_confirm() : 
+    "             \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+    " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+    " position. Coc only does snippet and additional edit on confirm.
+    if has('patch8.1.1068')
+        " Use `complete_info` if your (Neo)Vim version supports it.
+        inoremap <silent> <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    else
+        imap <silent> <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    endif
 
     " Use `[c` and `]c` to navigate diagnostics
     nmap <silent> [c <Plug>(coc-diagnostic-prev)
