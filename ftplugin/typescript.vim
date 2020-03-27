@@ -26,14 +26,7 @@ endfunction
 
 augroup my_autocmds
     au BufEnter * if &ft ==# 'typescript' | call s:SetLeaderGuideMappings() | endif
-    autocmd VimEnter * if exists(projectroot#guess() . '/angular.json') != '' | call angular_cli#init() | endif
-    " au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | endtry
 augroup END
-
-if dein#tap('nvim-typescript')
-    let g:nvim_typescript#max_completion_detail=100
-    let g:nvim_typescript#type_info_on_hold=0
-endif
 
 setlocal indentkeys+=0.
 setlocal shiftwidth=2

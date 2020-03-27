@@ -22,14 +22,7 @@ endfunction
 augroup my_autocmds
     au BufEnter * if &ft ==# 'javascript.jsx' | call s:SetLeaderGuideMappings() | endif
     au BufEnter * if &ft ==# 'javascript' | call s:SetLeaderGuideMappings() | endif
-    " au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | endtry
 augroup END
-
-if dein#tap('neomake')
-    if dein#tap('nrun')
-        let b:neomake_javascript_eslint_exe=nrun#Which('eslint')
-    endif
-endif
 
 setlocal shiftwidth=2
 setlocal softtabstop=2

@@ -1,15 +1,8 @@
 augroup my_autocmds
     au!
 
-    if dein#tap('neomake')
-        au BufWinEnter * Neomake
-        au BufWritePost * Neomake
-    endif
-
     autocmd VimEnter * silent! autocmd! FileExplorer
     au BufNew,BufEnter,VimEnter * if isdirectory(expand("<amatch>")) | call dein#source("nerdtree") | endif
-
-    au VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angular_cli#init() | endif
 
     "resize automatically
     au VimResized * execute "normal! \<c-w>="

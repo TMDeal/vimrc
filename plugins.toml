@@ -16,39 +16,6 @@ hook_add = '''
 let g:rootmarkers=g:root_markers
 '''
 
-####################
-# C/C++ ############
-####################
-
-[[plugins]]
-repo = 'vim-scripts/DoxygenToolkit.vim'
-name = 'doxygen-toolkit'
-on_ft = ['c', 'cpp']
-
-[[plugins]]
-repo = 'derekwyatt/vim-fswitch'
-name = 'fswitch'
-on_ft = ['c', 'cpp']
-
-[[plugins]]
-repo = 'drmikehenry/vim-headerguard'
-name = 'headerguard'
-on_ft = ['c', 'cpp']
-
-[[plugins]]
-repo = 'octol/vim-cpp-enhanced-highlight'
-name = 'cpp-enhanced-hightlight'
-on_ft = ['c', 'cpp']
-hook_add = '''
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_experimental_simple_template_highlight = 1
-let g:cpp_experimental_template_highlight = 0
-let g:cpp_concepts_highlight = 1
-let g:cpp_no_function_highlight = 0
-'''
-
 ######################
 # Elixir #############
 ######################
@@ -308,17 +275,6 @@ let g:gitgutter_map_keys=0
 '''
 
 ####################
-# Checkers #########
-####################
-
-# [[plugins]]
-# repo = 'neomake/neomake'
-#
-# [[plugins]]
-# repo = 'sinetoami/lightline-neomake'
-# depends = 'neomake'
-
-####################
 # Format ###########
 ####################
 
@@ -415,14 +371,3 @@ on_cmd = ['ShebangInsert']
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
 name = 'tmux-navigator'
-
-[[plugins]]
-repo = 'jpalardy/vim-slime'
-name = 'slime'
-on_if = 'exists("$TMUX")'
-hook_add = '''
-let g:slime_target='tmux'
-let g:slime_paste_file=$EDITOR_ROOT . '/.slime_paste'
-let g:slime_default_config={'socket_name': 'default', 'target_pane': '1.2'}
-let g:slime_python_ipython=1
-'''

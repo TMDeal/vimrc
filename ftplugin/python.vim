@@ -92,11 +92,6 @@ augroup my_autocmds
     au BufEnter * if &ft ==# 'python' | call s:RopeProjectIfExistsSettings() | endif
 augroup END
 
-if dein#tap('neomake')
-    let b:neomake_python_python_exe='python'
-    let g:neomake_python_enabled_makers = ['flake8']
-endif
-
 if dein#tap('jedi')
     " EchoDocDisable
 
