@@ -64,6 +64,31 @@ name = 'jinja'
 on_ft = ['jinja']
 
 ####################
+# Ruby #############
+####################
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'tpope/vim-rbenv'
+
+[[plugins]]
+repo = 'tpope/vim-bundler'
+
+[[plugins]]
+repo = 'tpope/vim-rake'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'keith/rspec.vim'
+
+[[plugins]]
+repo = 'thoughtbot/vim-rspec'
+
+####################
 # Go ###############
 ####################
 
