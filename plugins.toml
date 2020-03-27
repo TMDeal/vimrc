@@ -332,8 +332,7 @@ on_cmd = ['Tabularize']
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-merge = 0
-build = './install.sh nightly'
+rev = 'release'
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
