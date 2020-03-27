@@ -77,10 +77,10 @@ on_ft = ['go', 'gohtmltmpl']
 # html ##################
 #########################
 
-[[plugins]]
-repo = 'mattn/emmet-vim'
-name = 'emmet'
-on_ft = ['html', 'javascript', 'javascript.jsx', 'jinja', 'gohtmltmpl', 'eelixir', 'htmldjango']
+# [[plugins]]
+# repo = 'mattn/emmet-vim'
+# name = 'emmet'
+# on_ft = ['html', 'javascript', 'javascript.jsx', 'jinja', 'gohtmltmpl', 'eelixir', 'htmldjango']
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
