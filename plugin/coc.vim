@@ -50,9 +50,9 @@ if dein#tap('coc.nvim')
     " position. Coc only does snippet and additional edit on confirm.
     if has('patch8.1.1068')
         " Use `complete_info` if your (Neo)Vim version supports it.
-        inoremap <silent> <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+        inoremap <silent> <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR><Plug>DiscretionaryEnd"
     else
-        imap <silent> <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+        imap <silent> <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR><Plug>DiscretionaryEnd"
     endif
 
     " Use `[c` and `]c` to navigate diagnostics

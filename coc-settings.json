@@ -15,6 +15,16 @@
   "python.linting.flake8Enabled": true,
   "python.formatting.provider": "autopep8",
 
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
+  "solargraph.hover": true,
+  "solargraph.symbols": true,
+  "solargraph.rename": true,
+  "solargraph.definitions": true,
+  "solargraph.references": true,
+  "solargraph.completion": true,
+
   "git.enableGutters": true,
 
   "list.source.files.command": "rg",
