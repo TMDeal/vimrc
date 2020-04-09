@@ -16,6 +16,7 @@ if dein#tap('coc.nvim')
         \ 'coc-git',
         \ 'coc-emmet',
         \ 'coc-tsserver',
+        \ 'coc-eslint',
         \ 'coc-elixir',
         \ 'coc-vetur',
         \ 'coc-solargraph',

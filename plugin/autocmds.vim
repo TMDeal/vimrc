@@ -1,6 +1,8 @@
 augroup my_autocmds
     au!
 
+    autocmd FileType * let b:coc_root_patterns=g:root_markers
+
     autocmd VimEnter * silent! autocmd! FileExplorer
     au BufNew,BufEnter,VimEnter * if isdirectory(expand("<amatch>")) | call dein#source("nerdtree") | endif
 

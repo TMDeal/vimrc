@@ -141,11 +141,6 @@ on_ft = ['scss']
 #######################################
 
 [[plugins]]
-repo = 'jaawerth/nrun.vim'
-name = 'nrun'
-# on_func = ['nrun#Which']
-
-[[plugins]]
 repo = 'dunckr/js_alternate.vim'
 name = 'js-alternate'
 on_func = ['js_alternate#run']
@@ -159,13 +154,6 @@ let g:js_alternate#extension_types = ['js', 'jsx', 'coffee', 'ts', 'elm', 'purs'
 repo = 'heavenshell/vim-jsdoc'
 name = 'jsdoc'
 on_cmd = ['JsDoc']
-
-[[plugins]]
-repo = 'ternjs/tern_for_vim'
-name = 'ternjs'
-if = 'executable("tern")'
-on_ft = ['javascript', 'javascript.jsx']
-build = 'npm install'
 
 [[plugins]]
 repo = 'jparise/vim-graphql'
@@ -196,13 +184,6 @@ name = 'json'
 on_ft = ['json']
 hook_add = '''
 let g:vim_json_syntax_conceal=0
-'''
-
-[[plugins]]
-repo = 'bdauria/angular-cli.vim'
-name = 'angular-cli'
-hook_add = '''
-let g:angular_cli_stylesheet_format="scss"
 '''
 
 [[plugins]]
